@@ -9,11 +9,7 @@ registerBlockType('learningpathsblock/learningpathsblock-esnext', {
     category: 'design',
     attributes: {
         content: {
-            type: "string",
-            default: "hello world"
-        },
-        data: {
-            type: "string",
+            type: 'array'
         }
     },
     edit: (props) => <Edit {...props} />,

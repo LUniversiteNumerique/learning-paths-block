@@ -1,10 +1,8 @@
 import React, { useEffect, useState, FunctionComponent } from 'react';
 import apiFetch from '@wordpress/api-fetch';
-import { RichText  } from '@wordpress/block-editor';
 
 interface Attributes {
     content: string | any;
-	data: string | any;
 }
 
 interface EditProps {
@@ -14,7 +12,6 @@ interface EditProps {
 
 const Edit: FunctionComponent<EditProps> = ({ ...props }: EditProps) => {
     const endpoint: string = '/wordpress-5.6/wp-content/plugins/learning-paths-api/api.php';
-
     const [error, setError]         = useState<any>(null);
     const [data, setData]           = useState<any>(null);
     const [isLoaded, setIsLoaded]   = useState(false);
@@ -32,23 +29,21 @@ const Edit: FunctionComponent<EditProps> = ({ ...props }: EditProps) => {
         );
     }, []);
     
-    const selectDiploma = (id: string | number) => {
-        console.log(id);
-    }
-
     if (error) {
         return <p>Error : { error.message }</p>;
     } else if (! isLoaded) {
         return <p>Loading data...</p>;
-    } else if (data) {
-        props.setAttributes({ content: data } as any);
+    } else if (data && data.diplomas[0]) {
+        props.setAttributes({ 
+            content: data.diplomas, 
+        } as any);
 
         return (
             <div>
                 { data?.diplomas.map((row : any) => {
                     return (
                         <>
-                            <h3 onClick={ () => selectDiploma(row.id) }>{row.name}</h3>
+                            <h3>{row.name}</h3>
                             { row.years && row.years.map((year : any) => {
                                 return (
                                     <>

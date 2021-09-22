@@ -1,9 +1,11 @@
 import * as React from 'react';
 
 const Save = ({ ...props }: any) => {
+    const content = props.attributes.content;
+    
     return (
         <div>
-            { props.attributes.content?.diplomas.map((row : any) => {
+            { content && content.map((row : any) => {
                 return (
                     <>
                         <h3>{row.name}</h3>
