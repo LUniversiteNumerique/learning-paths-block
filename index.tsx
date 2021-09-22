@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { registerBlockType } from '@wordpress/blocks';
 import Edit from './src/components/edit';
-import save from './src/components/save';
+import Save from './src/components/save';
 
 registerBlockType('learningpathsblock/learningpathsblock-esnext', {
     title: 'Learning Paths Block',
@@ -14,14 +14,5 @@ registerBlockType('learningpathsblock/learningpathsblock-esnext', {
         }
     },
     edit: (props) => <Edit {...props} />,
-    save: (props) => {
-        let { attributes: { content } } = props;
-        // @ts-expect-error The type given is more strict than the definition
-        let ct: string = content;
-        return (
-          <div>
-            <p>{ ct }</p>
-          </div>
-        )
-      }
+    save: (props) => <Save {...props} />
 });
