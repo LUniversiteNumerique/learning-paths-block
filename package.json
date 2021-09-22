@@ -9,12 +9,16 @@
     "Pierre Duverneix <pierre.duverneix@gmail.com> (https://github.com/Hipjea/)"
   ],
   "dependencies": {
+    "@types/wordpress__blocks": "^9.0.2",
+    "@wordpress/api-fetch": "^5.2.2",
     "@wordpress/block-editor": "^7.0.2",
     "@wordpress/blocks": "^11.1.0",
+    "@wordpress/i18n": "^4.2.2",
     "@wordpress/scripts": "^18.0.1",
+    "axios": "^0.21.4",
     "core-js": "^3.18.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "typescript": "^4.4.3"
   },
   "devDependencies": {
@@ -26,7 +30,7 @@
     "@types/react": "^17.0.22",
     "@types/react-dom": "^17.0.9",
     "@types/webpack": "^5.28.0",
-    "@types/wordpress__blocks": "^9.0.2",
+    "@types/wordpress__block-editor": "^6.0.4",
     "@typescript-eslint/eslint-plugin": "^4.31.2",
     "@typescript-eslint/parser": "^4.31.2",
     "@webpack-cli/generators": "^2.3.0",
@@ -41,6 +45,10 @@
     "tsconfig-paths": "^3.11.0",
     "webpack": "^5.53.0",
     "webpack-cli": "^4.8.0"
+  },
+  "peerDependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   },
   "scripts": {
     "build": "webpack --mode=production --node-env=production",

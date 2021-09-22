@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
         "target": "es5",
-        "jsx": "react-jsx",
-        "module": "esnext",
+        "jsx": "react",
+        "module": "es6",
         "moduleResolution": "node",
         "allowJs": true,
         "esModuleInterop": true,
@@ -13,7 +13,7 @@
         "strictNullChecks": true,
         "noImplicitThis": true,
         "alwaysStrict": true,
-        "noUnusedLocals": true,
+        "noUnusedLocals": false,
         "noUnusedParameters": true,
         "skipLibCheck": true
     },
