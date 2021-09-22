@@ -1,1 +1,1 @@
-# Learning Paths Client
+# Learning Paths Block
