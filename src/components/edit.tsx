@@ -4,7 +4,7 @@ import { RichText  } from '@wordpress/block-editor';
 
 interface Attributes {
     content: string | any;
-	//data: { type: string; default: ''; }
+	data: string | any;
 }
 
 interface EditProps {
@@ -32,18 +32,38 @@ const Edit: FunctionComponent<EditProps> = ({ ...props }: EditProps) => {
         );
     }, []);
     
+    const selectDiploma = (id: string | number) => {
+        console.log(id);
+    }
+
     if (error) {
         return <p>Error : { error.message }</p>;
     } else if (! isLoaded) {
         return <p>Loading data...</p>;
     } else if (data) {
-        props.setAttributes({ content: data?.name });
+        props.setAttributes({ content: data } as any);
+
         return (
             <div>
-                <RichText 
-                    className="example-content"
-                    value={data?.name}
-                    onChange={(_) => props.setAttributes({ content: data?.name })} />
+                { data?.diplomas.map((row : any) => {
+                    return (
+                        <>
+                            <h3 onClick={ () => selectDiploma(row.id) }>{row.name}</h3>
+                            { row.years && row.years.map((year : any) => {
+                                return (
+                                    <>
+                                        <h4>{year.name}</h4>
+                                        { row.ue && row.ue.map((ue : any) => {
+                                            return (
+                                                <h5>{ue.name}</h5>
+                                            )
+                                        }) }
+                                    </>
+                                )
+                            }) }
+                        </>
+                    )
+                }) }
             </div>
         )
     }

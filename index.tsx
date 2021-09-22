@@ -11,6 +11,9 @@ registerBlockType('learningpathsblock/learningpathsblock-esnext', {
         content: {
             type: "string",
             default: "hello world"
+        },
+        data: {
+            type: "string",
         }
     },
     edit: (props) => <Edit {...props} />,

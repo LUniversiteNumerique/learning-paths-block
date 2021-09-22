@@ -1,10 +1,29 @@
 import * as React from 'react';
-import { RichText } from '@wordpress/block-editor';
 
 const Save = ({ ...props }: any) => {
     return (
-        <RichText.Content tagName="p" value={ props.attributes.content } />
-    );
+        <div>
+            { props.attributes.content?.diplomas.map((row : any) => {
+                return (
+                    <>
+                        <h3>{row.name}</h3>
+                        { row.years && row.years.map((year : any) => {
+                            return (
+                                <>
+                                    <h4>{year.name}</h4>
+                                    { row.ue && row.ue.map((ue : any) => {
+                                        return (
+                                            <h5>{ue.name}</h5>
+                                        )
+                                    }) }
+                                </>
+                            )
+                        }) }
+                    </>
+                )
+            }) }
+        </div>
+    )
 };
 
 export default Save;
