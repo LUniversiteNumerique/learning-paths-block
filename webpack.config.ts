@@ -15,33 +15,19 @@ const config = {
         ...defaultConfig.module,
         rules: [
             {
-                test: /\.(js|jsx)$/i,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader'
-                }
-            },
-            {
-                test: /\.ts(x)?$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'ts-loader'
-                }
-            },
-            {
-                test: /\.css$/i,
-                use: [stylesHandler, 'css-loader']
-            },
-            {
-                test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-                type: 'asset'
-            },
+				test: /\.tsx?$/,
+				use: "ts-loader",
+				exclude: /node_modules/,
+			},
             ...defaultConfig.module.rules
         ]
     },
     resolve: {
         ...defaultConfig.resolve,
-        extensions: ['.ts', '.tsx', '.js', 'jsx']
+        extensions: ['.ts', '.tsx', '.js', 'jsx'],
+        alias: {
+            react: path.resolve('./node_modules/react')
+        }
     }
 };
 
