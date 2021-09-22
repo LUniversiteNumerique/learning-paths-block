@@ -1,9 +1,12 @@
-import * as React from 'react';
+import React, { useEffect, useState, FunctionComponent } from 'react';
+
 
 const Save = ({ ...props }: any) => {
+    const content = props.attributes.content;
     return (
         <div>
-            { props.attributes.content?.diplomas.map((row : any) => {
+            { content && content.diplomas && 
+                content.diplomas.map((row : any) => {
                 return (
                     <>
                         <h3>{row.name}</h3>
