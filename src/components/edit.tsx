@@ -1,30 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, FunctionComponent } from 'react';
 import apiFetch from '@wordpress/api-fetch';
-import axios, { Method } from 'axios';
+import { RichText  } from '@wordpress/block-editor';
 
-type EditProps = {
+interface Attributes {
+    content: string | unknown;
+	//data: { type: string; default: ''; }
+}
 
-};
+interface EditProps {
+	attributes: Attributes;
+	setAttributes: (attributes: Attributes) => void;
+}
 
-type FetchProps = {
-    url: string,
-    path: string,
-    data: any,
-    method: string
-};
-
-const Edit = ({}: EditProps) => {
+const Edit: FunctionComponent<EditProps> = ({ ...props }: EditProps) => {
     const endpoint: string = '/wordpress-5.6/wp-content/plugins/learning-paths-api/api.php';
 
     const [error, setError]         = useState<any>(null);
     const [data, setData]           = useState<any>(null);
     const [isLoaded, setIsLoaded]   = useState(false);
+    const [content, setContent]     = useState('');
 
     useEffect(() => {
         apiFetch({ url: `${endpoint}/diploma/1` }).then(
             (result) => {
                 setIsLoaded(true);
                 setData(result);
+                setContent('blockc ontent !');
+                console.log("props : ", props);
             },
             (error) => {
                 setIsLoaded(true);
@@ -40,14 +42,25 @@ const Edit = ({}: EditProps) => {
     } else if (data) {
         console.log("my data : ", data);
         console.log("my data name : ", data?.name);
-        return <h3>Data : <i>{ data?.name }</i> loaded!</h3>;
+        return (
+            <div>
+                <RichText 
+                    className="example-content"
+                    value={content}
+                    onChange={(content) => props.setAttributes({ content })} />
+            </div>
+        )
+        //return <h3>Data : <i>{ data?.name }</i> loaded!</h3>;
     }
 
 	return (
-		<p>
-			Hi from the editor
-		</p>
-	);
+        <div>
+            <RichText 
+                className="example-content"
+                value={content}
+                onChange={(content) => props.setAttributes({ content })} />
+        </div>
+    );
 }
 
 export default Edit;

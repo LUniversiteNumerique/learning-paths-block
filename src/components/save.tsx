@@ -1,18 +1,15 @@
 import * as React from 'react';
+import { RichText } from '@wordpress/block-editor';
 
 type SaveProps = {
-    content: {
-        type: string,
-        source: string,
-        selector: string
-    },
-    data: any
+    attributes: { 
+        content: any
+    }
 };
 
-const Save = ({ attributes }: any) => {
-    console.log(attributes);
+const Save = ({ ...props }: any) => {
     return (
-        <div>Saved</div>
+        <RichText.Content tagName="p" value={ props.attributes.content } />
     );
 };
 
