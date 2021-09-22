@@ -25,7 +25,7 @@ function learningpathsblock_register_block() {
     );
  
     register_block_type( 'learningpaths/block', array(
-        'editor_script' => 'learningpathsblock',
+        'editor_script' => 'learningpathsblock'
     ));
 }
 

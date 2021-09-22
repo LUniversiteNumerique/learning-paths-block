@@ -33,8 +33,10 @@ const Edit: FunctionComponent<EditProps> = ({ ...props }: EditProps) => {
         return <p>Error : { error.message }</p>;
     } else if (! isLoaded) {
         return <p>Loading data...</p>;
-    } else if (data) {
-        props.setAttributes({ content: data } as any);
+    } else if (data && data.diplomas[0]) {
+        props.setAttributes({ 
+            content: data.diplomas, 
+        } as any);
 
         return (
             <div>
