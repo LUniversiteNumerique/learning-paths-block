@@ -1,13 +1,21 @@
 const path = require("path");
+const webpack = require("webpack");
 const defaultConfig = require("@wordpress/scripts/config/webpack.config");
 const isProduction = process.env.NODE_ENV == 'production';
 const stylesHandler = 'style-loader';
 
+// Include jQuery for the frontend script
+new webpack.ProvidePlugin({
+    $: "jquery",
+    jQuery: "jquery"
+});
+ 
 const config = {
     ...defaultConfig,
     entry: {
         index: './index.tsx',
-        styles: './src/styles.ts'
+        styles: './src/styles.ts',
+        frontend: './src/scripts/index.ts'
     },
     output: {
         ...defaultConfig.output,
