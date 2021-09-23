@@ -14,8 +14,10 @@
  * @package           learningpathsblock
  */
 
+const LEARNINGPATHSBLOCK_DIR = '/learning-paths-block/build/';
+
 function learningpathsblock_register_block() {
-	$asset_file = include(plugin_dir_path(__FILE__) . 'build/block.asset.php');
+	$asset_file = include(plugin_dir_path(__FILE__) . 'build/index.bundle.asset.php');
 
     wp_register_script(
         'learningpathsblock',
@@ -32,7 +34,9 @@ function learningpathsblock_register_block() {
 add_action('init', 'learningpathsblock_register_block');
 
 function learningpathsblock_frontend_scripts() {
-    $script_file = plugins_url() . '/learning-paths-block/build/frontend.js';
+    $css_file = plugins_url() . LEARNINGPATHSBLOCK_DIR . 'styles.css';
+    wp_enqueue_style('learningpathsblock-frontend',  $css_file);
+    $script_file = plugins_url() . LEARNINGPATHSBLOCK_DIR . 'frontend.js';
     wp_enqueue_script('learningpathsblock-frontend',  $script_file);
 }
 
