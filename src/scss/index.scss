@@ -1,0 +1,33 @@
+$greyBg:   #d8d8d8;
+$greyText: #fcfcfc;
+$green:    #148084;
+
+.lpb-container {
+    display: flex;
+    flex-direction: row;
+
+    ul.lpb-diploma-list {
+        width: 25%;
+        padding-left: 0;
+
+        .diploma {
+            background-color: $greyBg;
+            color: $green;
+            padding: 10px 15px;
+    
+            &.active {
+                background-color: $green;
+                color: $green;
+            }
+
+            .year-name,
+            .lpb-body-data {
+                display: none;
+            }
+        }        
+    }
+
+    section.lpb-body {
+        width: 75%;
+    }
+}

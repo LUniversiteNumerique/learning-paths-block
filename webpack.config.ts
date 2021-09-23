@@ -1,15 +1,31 @@
 const path = require("path");
+const webpack = require("webpack");
 const defaultConfig = require("@wordpress/scripts/config/webpack.config");
 const isProduction = process.env.NODE_ENV == 'production';
 const stylesHandler = 'style-loader';
 
+// Include jQuery for the frontend script
+new webpack.ProvidePlugin({
+    $: "jquery",
+    jQuery: "jquery"
+});
+ 
 const config = {
     ...defaultConfig,
-    entry: './index.tsx',
+    entry: {
+        index: './index.tsx',
+        styles: './src/styles.ts',
+        frontend: './src/scripts/index.ts'
+    },
     output: {
         ...defaultConfig.output,
         path: path.resolve(__dirname, 'build'),
-        filename: 'block.js'
+        filename: '[name].bundle.js',
+    },
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        }
     },
     module: {
         ...defaultConfig.module,
@@ -19,6 +35,17 @@ const config = {
 				use: "ts-loader",
 				exclude: /node_modules/,
 			},
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    // Creates `style` nodes from JS strings
+                    "style-loader",
+                    // Translates CSS into CommonJS
+                    "css-loader",
+                    // Compiles Sass to CSS
+                    "sass-loader",
+                ],
+            },
             ...defaultConfig.module.rules
         ]
     },
