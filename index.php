@@ -23,10 +23,17 @@ function learningpathsblock_register_block() {
         $asset_file['dependencies'],
 		$asset_file['version']
     );
- 
+
     register_block_type( 'learningpaths/block', array(
         'editor_script' => 'learningpathsblock'
     ));
 }
 
 add_action('init', 'learningpathsblock_register_block');
+
+function learningpathsblock_frontend_scripts() {
+    $script_file = plugins_url() . '/learning-paths-block/build/frontend.js';
+    wp_enqueue_script('learningpathsblock-frontend',  $script_file);
+}
+
+add_action('enqueue_block_assets', 'learningpathsblock_frontend_scripts');
