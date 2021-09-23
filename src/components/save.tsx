@@ -4,7 +4,7 @@ const Save = ({ ...props }: any) => {
     const content = props.attributes.content;
     
     return (
-        <div>
+        <div className="learningpathsblock-container">
             { content && content.map((row : any) => {
                 return (
                     <>

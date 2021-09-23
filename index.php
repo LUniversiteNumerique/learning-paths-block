@@ -21,12 +21,12 @@ function learningpathsblock_register_block() {
 
     wp_register_script(
         'learningpathsblock',
-        plugins_url('build/block.js', __FILE__),
+        plugins_url('build/index.bundle.js', __FILE__),
         $asset_file['dependencies'],
 		$asset_file['version']
     );
 
-    register_block_type( 'learningpaths/block', array(
+    register_block_type('learningpaths/block', array(
         'editor_script' => 'learningpathsblock'
     ));
 }
@@ -36,8 +36,6 @@ add_action('init', 'learningpathsblock_register_block');
 function learningpathsblock_frontend_scripts() {
     $css_file = plugins_url() . LEARNINGPATHSBLOCK_DIR . 'styles.css';
     wp_enqueue_style('learningpathsblock-frontend',  $css_file);
-    $script_file = plugins_url() . LEARNINGPATHSBLOCK_DIR . 'frontend.js';
-    wp_enqueue_script('learningpathsblock-frontend',  $script_file);
 }
 
 add_action('enqueue_block_assets', 'learningpathsblock_frontend_scripts');

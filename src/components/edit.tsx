@@ -39,7 +39,7 @@ const Edit: FunctionComponent<EditProps> = ({ ...props }: EditProps) => {
         } as any);
 
         return (
-            <div>
+            <div className="learningpathsblock-container">
                 { data?.diplomas.map((row : any) => {
                     return (
                         <>
