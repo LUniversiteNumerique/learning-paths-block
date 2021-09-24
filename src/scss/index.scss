@@ -7,7 +7,7 @@ $green:    #148084;
     flex-direction: row;
 
     ul.lpb-diploma-list {
-        width: 25%;
+        width: 100%;
         padding-left: 0;
 
         .diploma {
@@ -20,14 +20,15 @@ $green:    #148084;
                 color: $green;
             }
 
-            .year-name,
-            .lpb-body-data {
-                display: none;
+            table tr, 
+            table tr th,
+            table tr td {
+                border: 1px solid $green;
             }
         }        
     }
 
     section.lpb-body {
-        width: 75%;
+        width: 0%;
     }
 }
