@@ -1,6 +1,8 @@
-$greyBg:   #d8d8d8;
-$greyText: #fcfcfc;
-$green:    #148084;
+$greyBg:    #eeeeee;
+$greyText:  #fcfcfc;
+$green:     #148084;
+$greenBg:   #92c7c4;
+$greenBgAlt:#dff4f2;
 
 .lpb-container {
     display: flex;
@@ -10,20 +12,52 @@ $green:    #148084;
         width: 100%;
         padding-left: 0;
 
-        .diploma {
-            background-color: $greyBg;
-            color: $green;
-            padding: 10px 15px;
-    
-            &.active {
-                background-color: $green;
+        .lpb-diploma {
+            .lpb-diploma-name {
+                background-color: $greyBg;
                 color: $green;
+                padding: 10px 15px;
+        
+                &.active {
+                    background-color: $green;
+                    color: $green;
+                }
             }
 
-            table tr, 
             table tr th,
             table tr td {
-                border: 1px solid $green;
+                border: 2px solid white;
+                padding: .25em .75em;
+            }
+
+            table {
+                thead {
+                    tr {
+                        th {
+                            background-color: $greenBg;
+                            color: white;
+                        }
+                    }
+                }
+                tbody {
+                    tr {
+                        th {
+                            background-color: $greenBgAlt;
+                        }
+                        td {
+                            &.lpb-resource-type,
+                            &.lpb-resource-volume {
+                                font-size: .85em;
+                            }
+                        }
+                        &:nth-child(even) {
+                            background-color: white;
+                        }
+                        &:nth-child(odd) {
+                            background-color: $greyBg;
+                        }
+                    }
+                }
             }
         }        
     }
