@@ -34,7 +34,8 @@ const DataView = (props : any) => {
                                                         { year.ue && year.ue.map((ue : any) => {
                                                             return ue.resources 
                                                                 ? <tbody>
-                                                                    { ue.resources && ue.resources.map((resource: Resource, i: number) => {
+                                                                    { ue.resources 
+                                                                        && ue.resources.map((resource: Resource, i: number): JSX.Element => {
                                                                         return createRow(resource, ue, "resource", ue.resources.length, i)
                                                                     }) }
                                                                 </tbody> 
