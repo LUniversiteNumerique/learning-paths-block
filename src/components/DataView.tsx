@@ -16,7 +16,8 @@ const DataView = (props : any) => {
                                 return (
                                     <article className="lpb-diploma">
                                         <h4 className="lpb-diploma-name">{diploma.name}</h4>
-                                        <section className="lpb-diploma-body">{diploma.description}</section>
+                                        <section className="lpb-diploma-body"
+                                            dangerouslySetInnerHTML={{__html: diploma.description}} />
                                         { diploma.years && diploma.years.map((year : any) => {
                                             return (
                                                 <>
@@ -32,11 +33,12 @@ const DataView = (props : any) => {
                                                         </thead>
                                                         { year.ue && year.ue.map((ue : any) => {
                                                             return ue.resources 
-                                                                ?   <tbody>
-                                                                        { ue.resources && ue.resources.map((resource: Resource, i: number) => {
-                                                                            return createRow(resource, ue, "resource", ue.resources.length, i)
-                                                                        }) }
-                                                                    </tbody> : null
+                                                                ? <tbody>
+                                                                    { ue.resources && ue.resources.map((resource: Resource, i: number) => {
+                                                                        return createRow(resource, ue, "resource", ue.resources.length, i)
+                                                                    }) }
+                                                                </tbody> 
+                                                                : null
                                                         }) }
                                                     </table>
                                                 </>
