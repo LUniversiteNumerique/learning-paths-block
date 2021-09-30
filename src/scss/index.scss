@@ -12,54 +12,60 @@ $greenBgAlt:#dff4f2;
         width: 100%;
         padding-left: 0;
 
-        .lpb-diploma {
-            .lpb-diploma-name {
-                background-color: $greyBg;
-                color: $green;
-                padding: 10px 15px;
-        
-                &.active {
-                    background-color: $green;
+        .lpb-field {
+            .lpb-diploma {
+                .lpb-diploma-name {
+                    background-color: $greyBg;
                     color: $green;
-                }
-            }
-
-            table tr th,
-            table tr td {
-                border: 2px solid white;
-                padding: .25em .75em;
-            }
-
-            table {
-                thead {
-                    tr {
-                        th {
-                            background-color: $greenBg;
-                            color: white;
-                        }
+                    padding: 10px 15px;
+            
+                    &.active {
+                        background-color: $green;
+                        color: $green;
                     }
                 }
-                tbody {
-                    tr {
-                        th {
-                            background-color: $greenBgAlt;
-                        }
-                        td {
-                            &.lpb-resource-type,
-                            &.lpb-resource-volume {
-                                font-size: .85em;
+
+                .lpb-diploma-body {
+                    display: none;
+
+                    table tr th,
+                    table tr td {
+                        border: 2px solid white;
+                        padding: .25em .75em;
+                    }
+
+                    table {
+                        thead {
+                            tr {
+                                th {
+                                    background-color: $greenBg;
+                                    color: white;
+                                }
                             }
                         }
-                        &:nth-child(even) {
-                            background-color: white;
-                        }
-                        &:nth-child(odd) {
-                            background-color: $greyBg;
+                        tbody {
+                            tr {
+                                th {
+                                    background-color: $greenBgAlt;
+                                }
+                                td {
+                                    font-size: .85em;
+                                    &.lpb-resource-name {
+                                        font-size: 1em;
+                                    }
+                                }
+                                &:nth-child(even) {
+                                    background-color: white;
+                                }
+                                &:nth-child(odd) {
+                                    background-color: $greyBg;
+                                }
+                            }
                         }
                     }
                 }
             }
-        }        
+        }
     }
 
     section.lpb-body {

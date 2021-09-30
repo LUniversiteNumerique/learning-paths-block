@@ -1,7 +1,7 @@
 import * as React from 'react';
 import strings from '../utils/strings.utils';
 import { Resource } from '../types/Resource';
-import { createRow } from '../utils/table.utils';
+import { createRow, createHeader } from '../utils/table.utils';
 
 const DataView = (props : any) => {
     const content = props.content;
@@ -16,35 +16,35 @@ const DataView = (props : any) => {
                                 return (
                                     <article className="lpb-diploma">
                                         <h4 className="lpb-diploma-name">{diploma.name}</h4>
-                                        <section className="lpb-diploma-body"
-                                            dangerouslySetInnerHTML={{__html: diploma.description}} />
-                                        { diploma.years && diploma.years.map((year : any) => {
-                                            return (
-                                                <>
-                                                    <h4>{year.name}</h4>
-                                                    <table>
-                                                        <thead>
-                                                            <tr>
-                                                                <th>{strings.ue}</th>
-                                                                <th>{strings.resource}</th>
-                                                                <th>{strings.types}</th>
-                                                                <th>{strings.volume}</th>
-                                                            </tr>
-                                                        </thead>
-                                                        { year.ue && year.ue.map((ue : any) => {
-                                                            return ue.resources 
-                                                                ? <tbody>
-                                                                    { ue.resources 
-                                                                        && ue.resources.map((resource: Resource, i: number): JSX.Element => {
-                                                                        return createRow(resource, ue, "resource", ue.resources.length, i)
-                                                                    }) }
-                                                                </tbody> 
-                                                                : null
-                                                        }) }
-                                                    </table>
-                                                </>
-                                            )
-                                        }) }
+                                        <section className="lpb-diploma-body">
+                                            <div className="lpb-diploma-description"
+                                                dangerouslySetInnerHTML={{__html: diploma.description}} />
+                                            { diploma.years && diploma.years.map((year : any) => {
+                                                return (
+                                                    <>
+                                                        <h4>{year.name}</h4>
+                                                        <table>
+                                                            <thead>
+                                                                
+                                                                <tr>
+                                                                    {createHeader(strings.thead)}
+                                                                </tr>
+                                                            </thead>
+                                                            { year.ue && year.ue.map((ue : any) => {
+                                                                return ue.resources 
+                                                                    ? <tbody>
+                                                                        { ue.resources 
+                                                                            && ue.resources.map((resource: Resource, i: number): JSX.Element => {
+                                                                            return createRow(resource, ue, "resource", ue.resources.length, i)
+                                                                        }) }
+                                                                    </tbody> 
+                                                                    : null
+                                                            }) }
+                                                        </table>
+                                                    </>
+                                                )
+                                            }) }
+                                        </section>
                                     </article>
                                 )
                             }) }

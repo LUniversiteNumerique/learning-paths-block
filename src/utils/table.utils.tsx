@@ -29,3 +29,7 @@ export const createRow = (
         </tr>
     );
 };
+
+export const createHeader = (obj: Object): JSX.Element[] => {
+    return Object.entries(obj).map(([_, v]) => <th>{v}</th>);
+}

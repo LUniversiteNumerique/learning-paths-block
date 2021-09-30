@@ -1,10 +1,10 @@
 if ($ != undefined) {
     $(function() {
-        const list = $('.lpb-diploma-list');
-        list.each(() => {
-            $(this).on('click', () => {
-                $('.lpb-body-data').show();
-            });
+        const diploma = $('.lpb-diploma');
+        diploma.on('click', (e) => {
+            e.preventDefault();
+            console.log($(this));
+            $(this).children().find('.lpb-diploma-body').toggle();
         });
     });
 }
