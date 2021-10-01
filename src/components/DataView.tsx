@@ -7,6 +7,12 @@ const DataView = (props : any) => {
     const content = props.content;
     return (
         <div className="lpb-container">
+            <div id="lpb-modal">
+                <div id="lpb-modal-content">
+                    <span id="lpb-modal-close">&times;</span>
+                    <div id="lpb-modal-content-body">...</div>
+                </div>
+            </div>
             <ul className="lpb-diploma-list">
                 { content && content.map((row : any) => {
                     return (
@@ -16,13 +22,13 @@ const DataView = (props : any) => {
                                 return (
                                     <article className="lpb-diploma">
                                         <h4 className="lpb-diploma-name">{diploma.name}</h4>
-                                        <section className="lpb-diploma-body">
-                                            <div className="lpb-diploma-description"
+                                        <div className="lpb-diploma-description"
                                                 dangerouslySetInnerHTML={{__html: diploma.description}} />
+                                        <section className="lpb-diploma-body">
                                             { diploma.years && diploma.years.map((year : any) => {
                                                 return (
                                                     <>
-                                                        <h4>{year.name}</h4>
+                                                        <h5>{year.name}</h5>
                                                         <table>
                                                             <thead>
                                                                 <tr>{createHeader(strings.thead)}</tr>

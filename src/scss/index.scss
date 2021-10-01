@@ -4,6 +4,11 @@ $green:     #148084;
 $greenBg:   #92c7c4;
 $greenBgAlt:#dff4f2;
 
+@mixin tableBorder() {
+    border: 2px solid white;
+    padding: .25em .75em;
+}
+
 .lpb-container {
     display: flex;
     flex-direction: row;
@@ -13,16 +18,42 @@ $greenBgAlt:#dff4f2;
         padding-left: 0;
 
         .lpb-field {
+            display: flex;
+            flex-direction: column;
+            overscroll-behavior: contain;
+
             .lpb-diploma {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                
+                &:hover {
+                    cursor: pointer;
+                }
+
+                &.active {
+                    .lpb-diploma-name {
+                        background-color: $green;
+                        color: white;
+                    }
+                    .lpb-diploma-description {
+                        display: flex;
+                    }
+                }
+
                 .lpb-diploma-name {
+                    flex-basis: 30%;
                     background-color: $greyBg;
                     color: $green;
                     padding: 10px 15px;
-            
-                    &.active {
-                        background-color: $green;
-                        color: $green;
-                    }
+                    font-size: 1.25em;
+                }
+
+                .lpb-diploma-description {
+                    display: none;
+                    flex: 1 0 30%;
+                    padding-left: 1em;
                 }
 
                 .lpb-diploma-body {
@@ -32,48 +63,83 @@ $greenBgAlt:#dff4f2;
                         display: flex;
                         flex-direction: column;
                     }
+                }
+            }
+        }
+    }
 
-                    table tr th,
-                    table tr td {
-                        border: 2px solid white;
-                        padding: .25em .75em;
-                    }
+    #lpb-modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.3);
 
-                    table {
-                        thead {
-                            tr {
-                                th {
-                                    background-color: $greenBg;
-                                    color: white;
-                                }
+        #lpb-modal-content {
+            background-color: #fefefe;
+            margin: 12% auto;
+            padding: 20px;
+            border: 1px solid $greyBg;
+            width: 90%;
+
+            #lpb-modal-close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+
+                &:hover,
+                &:focus {
+                    color: black;
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+            }
+
+            #lpb-modal-content-body {
+                table {
+                    thead {
+                        tr {
+                            th {
+                                @include tableBorder();
+                                background-color: $greenBg;
+                                color: white;
                             }
                         }
-                        tbody {
-                            tr {
-                                th {
-                                    background-color: $greenBgAlt;
+                    }
+                
+                    tbody {
+                        tr {
+                            th {
+                                @include tableBorder();
+                                background-color: $greenBgAlt;
+                            }
+
+                            td {
+                                @include tableBorder();
+                                font-size: .85em;
+                                
+                                &.lpb-resource-name {
+                                    font-size: 1em;
                                 }
-                                td {
-                                    font-size: .85em;
-                                    &.lpb-resource-name {
-                                        font-size: 1em;
-                                    }
-                                }
-                                &:nth-child(even) {
-                                    background-color: white;
-                                }
-                                &:nth-child(odd) {
-                                    background-color: $greyBg;
-                                }
+                            }
+
+                            &:nth-child(even) {
+                                background-color: white;
+                            }
+
+                            &:nth-child(odd) {
+                                background-color: $greyBg;
                             }
                         }
                     }
                 }
             }
         }
-    }
-
-    section.lpb-body {
-        width: 0%;
     }
 }
