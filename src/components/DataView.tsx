@@ -1,7 +1,4 @@
 import * as React from 'react';
-import strings from '../utils/strings.utils';
-import { Resource } from '../types/Resource';
-import { createRow, createHeader } from '../utils/table.utils';
 
 const DataView = (props : any) => {
     const content = props.content;
@@ -21,33 +18,7 @@ const DataView = (props : any) => {
                             { row.diplomas && row.diplomas.map((diploma : any) => {
                                 return (
                                     <article className="lpb-diploma">
-                                        <h4 className="lpb-diploma-name">{diploma.name}</h4>
-                                        <div className="lpb-diploma-description"
-                                                dangerouslySetInnerHTML={{__html: diploma.description}} />
-                                        <section className="lpb-diploma-body">
-                                            { diploma.years && diploma.years.map((year : any) => {
-                                                return (
-                                                    <>
-                                                        <h5>{year.name}</h5>
-                                                        <table>
-                                                            <thead>
-                                                                <tr>{createHeader(strings.thead)}</tr>
-                                                            </thead>
-                                                            { year.ue && year.ue.map((ue : any) => {
-                                                                return ue.resources 
-                                                                    ? <tbody>
-                                                                        { ue.resources 
-                                                                            && ue.resources.map((resource: Resource, i: number): JSX.Element => {
-                                                                            return createRow(resource, ue, "resource", ue.resources.length, i)
-                                                                        }) }
-                                                                    </tbody> 
-                                                                    : null
-                                                            }) }
-                                                        </table>
-                                                    </>
-                                                )
-                                            }) }
-                                        </section>
+                                        <h4 className="lpb-diploma-name" data-lpb-id={diploma.id}>{diploma.name}</h4>
                                     </article>
                                 )
                             }) }

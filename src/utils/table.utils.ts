@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Resource } from '../types/Resource';
-
+/*
 export const createRow = (
     object: Resource, 
     parent: any, 
@@ -28,8 +28,12 @@ export const createRow = (
             {rows}
         </tr>
     );
-};
+};*/
 
-export const createHeader = (obj: Object): JSX.Element[] => {
-    return Object.entries(obj).map(([_, v]) => <th>{v}</th>);
+export const createHeader = (obj: Object): HTMLElement[] => {
+    return Object.entries(obj).map(([_, v]) => {
+        const thRow = document.createElement('th');
+        thRow.innerHTML = v;
+        return thRow;
+    });
 }

@@ -1,4 +1,7 @@
 import { baseURI } from '../utils/utils';
+import { createHeader } from '../utils/table.utils';
+import strings from '../utils/strings.utils';
+import { createElement } from '@wordpress/components/node_modules/@wordpress/element/build-types';
 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -35,15 +38,39 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Set the new active class
                 const element = event.target as HTMLElement;
                 const parent = element.parentElement as HTMLElement;
-                
+                const diplomaId = element.dataset.lpbId;
+
                 if (parent) {
                     parent.classList.toggle('active');
-                    fetch(`${baseURI}/wp-content/plugins/learning-paths-api/api.php/diploma/1`)
+                    let diplomaData = {} as any;
+
+                    fetch(`${baseURI}/wp-content/plugins/learning-paths-api/api.php/diploma/${diplomaId}`)
                         .then(response => response.json())
                         .then(data => {
                             console.log(data);
+                            diplomaData = data;
+                            console.log("data out : ", diplomaData.years);
+
+                            const desc = document.createElement('p');
+                            desc.className = 'lpb-diploma-description';
+                            desc.innerHTML = data.description;
+
+                            const theadTh = createHeader(strings.thead);
+                            const table = document.createElement('table');
+                            const thead = document.createElement('thead');
+                            const tr = document.createElement('tr');
+                            const tbody = document.createElement('tbody');
+
+                            theadTh.forEach(el => tr.appendChild(el));
+                            thead.appendChild(tr);
+                            table.appendChild(thead);
+                            table.appendChild(tbody);
+
+                            modalContent.appendChild(desc);
+                            modalContent.appendChild(table);
                         })
                         .catch(console.error);
+
                     modalContent.innerHTML = parent.innerHTML;
                     modal.style.display = 'block';
                     
