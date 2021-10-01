@@ -28,6 +28,11 @@ $greenBgAlt:#dff4f2;
                 .lpb-diploma-body {
                     display: none;
 
+                    &.active {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
                     table tr th,
                     table tr td {
                         border: 2px solid white;

@@ -25,10 +25,7 @@ const DataView = (props : any) => {
                                                         <h4>{year.name}</h4>
                                                         <table>
                                                             <thead>
-                                                                
-                                                                <tr>
-                                                                    {createHeader(strings.thead)}
-                                                                </tr>
+                                                                <tr>{createHeader(strings.thead)}</tr>
                                                             </thead>
                                                             { year.ue && year.ue.map((ue : any) => {
                                                                 return ue.resources 
@@ -52,7 +49,6 @@ const DataView = (props : any) => {
                     )
                 }) }
             </ul>
-            <section className="lpb-body"></section>
         </div>
     )
 };
