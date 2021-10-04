@@ -18,7 +18,7 @@ const Edit: FunctionComponent<EditProps> = ({ ...props }: EditProps) => {
     const [isLoaded, setIsLoaded]   = useState(false);
 
     useEffect(() => {
-        apiFetch({ url: `${endpoint}/diploma/1` }).then(
+        apiFetch({ url: `${endpoint}/fields/all` }).then(
             (result) => {
                 setIsLoaded(true);
                 setData(result);

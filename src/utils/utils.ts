@@ -1,0 +1,1 @@
+export const baseURI = 'http://localhost:8888/wordpress-5.6';
