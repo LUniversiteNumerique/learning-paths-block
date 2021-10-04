@@ -35,9 +35,15 @@ add_action('init', 'learningpathsblock_register_block');
 
 function learningpathsblock_frontend_scripts() {
     $css_file = plugins_url() . LEARNINGPATHSBLOCK_DIR . 'styles.css';
-    wp_enqueue_style('learningpathsblock-styles',  $css_file);
+    wp_enqueue_style('learningpathsblock-styles', $css_file);
     $script_file = plugins_url() . LEARNINGPATHSBLOCK_DIR . 'frontend.bundle.js';
-    wp_enqueue_script('learningpathsblock-frontend',  $script_file);
+    wp_enqueue_script(
+        'learningpathsblock-frontend', 
+        $script_file,
+        ['wp-element'],
+        null,
+        true
+    );
 }
 
 add_action('enqueue_block_assets', 'learningpathsblock_frontend_scripts');

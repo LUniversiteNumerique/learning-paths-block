@@ -4,6 +4,7 @@ const DataView = (props : any) => {
     const content = props.content;
     return (
         <div className="lpb-container">
+            <div id="lpb-frontend-receiver" />
             <div id="lpb-modal">
                 <div id="lpb-modal-content">
                     <span id="lpb-modal-close">&times;</span>

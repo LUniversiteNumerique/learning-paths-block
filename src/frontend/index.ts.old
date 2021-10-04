@@ -1,7 +1,6 @@
 import { baseURI } from '../utils/utils';
 import { createHeader } from '../utils/table.utils';
 import strings from '../utils/strings.utils';
-import { createElement } from '@wordpress/components/node_modules/@wordpress/element/build-types';
 
 document.addEventListener("DOMContentLoaded", function() {
 
