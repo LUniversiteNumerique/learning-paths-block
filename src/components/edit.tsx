@@ -1,6 +1,7 @@
 import React, { useEffect, useState, FunctionComponent } from 'react';
 import apiFetch from '@wordpress/api-fetch';
 import DataView from './DataView';
+import { baseURI } from '../utils/utils';
 
 interface Attributes {
     content: string | any;
@@ -12,7 +13,7 @@ interface EditProps {
 }
 
 const Edit: FunctionComponent<EditProps> = ({ ...props }: EditProps) => {
-    const endpoint: string = '/wordpress-5.6/wp-content/plugins/learning-paths-api/api.php';
+    const endpoint: string          = baseURI;
     const [error, setError]         = useState<any>(null);
     const [data, setData]           = useState<any>(null);
     const [isLoaded, setIsLoaded]   = useState(false);
@@ -42,7 +43,7 @@ const Edit: FunctionComponent<EditProps> = ({ ...props }: EditProps) => {
         return ( <DataView content={content} /> );
     }
 
-	return <div>...</div>;
+	return <div />;
 }
 
 export default Edit;
