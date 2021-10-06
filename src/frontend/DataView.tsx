@@ -25,7 +25,13 @@ const DataView = () => {
         } else {
             setHTML(rest => [...rest, data]);
         }
-    }
+    };
+
+    const fetchAPI = async (id: number) => {
+        const response = await fetch(`${baseURI}/data/${id}`);
+        const data = await response.json();
+        return data;
+    };
 
     const listenerEvent = (event: any) => {
         // Clean the active classes
@@ -36,48 +42,44 @@ const DataView = () => {
         // Set the new active class
         const element = event.target as HTMLElement;
         const parent = element.parentElement as HTMLElement;
-        const diplomaId = element.dataset.lpbId;
+        const diplomaId: number = element.dataset.lpbId ? parseInt(element.dataset?.lpbId) : 0;
 
         if (parent) {
             parent.classList.toggle('active');
             buildHTML(); // Clear the html
-            //buildHTML(<p>test</p>);
-            fetch(`${baseURI}/wp-content/plugins/learning-paths-api/api.php/diploma/${diplomaId}`)
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    const out = <article className="lpb-diploma">
-                                    <h4 className="lpb-diploma-name">{data.name}</h4>
-                                    <div className="lpb-diploma-description" dangerouslySetInnerHTML={{ __html: data.description }} />
-                                    <section className="lpb-diploma-body">
-                                    { data.years && data.years.map((year : any) => {
-                                        return (
-                                            <>
-                                                <h5>{year.name}</h5>
-                                                <table>
-                                                    <thead>
-                                                        <tr>{createHeader(strings.thead)}</tr>
-                                                    </thead>
-                                                    { year.ue && year.ue.map((ue : any) => {
-                                                        return ue.resources 
-                                                            ? <tbody>
-                                                                { ue.resources 
-                                                                    && ue.resources.map((resource: Resource, i: number): JSX.Element => {
-                                                                    return createRow(resource, ue, "resource", ue.resources.length, i)
-                                                                }) }
-                                                            </tbody> 
-                                                            : null
-                                                    }) }
-                                                </table>
-                                            </>
-                                        )
+
+            fetchAPI(diplomaId).then(data => {
+                const out = <article className="lpb-diploma">
+                    <h4 className="lpb-diploma-name">{data.name}</h4>
+                    <div className="lpb-diploma-description" dangerouslySetInnerHTML={{ __html: data.description }} />
+                    <section className="lpb-diploma-body">
+                    { data.years && data.years.map((year : any) => {
+                        return (
+                            <>
+                                <h5>{year.name}</h5>
+                                <table>
+                                    <thead>
+                                        <tr>{createHeader(strings.thead)}</tr>
+                                    </thead>
+                                    { year.ue && year.ue.map((ue : any) => {
+                                        return ue.resources 
+                                            ? <tbody>
+                                                { ue.resources 
+                                                    && ue.resources.map((resource: Resource, i: number): JSX.Element => {
+                                                    return createRow(resource, ue, "resource", ue.resources.length, i)
+                                                }) }
+                                            </tbody> 
+                                            : null
                                     }) }
-                                    </section>
-                                </article>;
-                    buildHTML(<>{out}</>);
-                })
-                .catch(console.error);
-    
+                                </table>
+                            </>
+                        )
+                    }) }
+                    </section>
+                </article>;
+                buildHTML(<>{out}</>);
+            });
+
             modal.style.display = 'block';
             document.body.style.overflowY = 'hidden';
         }
