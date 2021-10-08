@@ -4,7 +4,7 @@ import { Resource } from '../types/Resource';
 import { Diploma } from '../types/Diploma';
 import { createRow, createHeader } from '../utils/table.utils';
 
-const DataView = (data : Diploma    ) => {
+const DataView = (data : Diploma) => {
     return (
         <article className="lpb-diploma">
             <h4 className="lpb-diploma-name">{data.name}</h4>
