@@ -20,11 +20,11 @@ const Edit: FunctionComponent<EditProps> = ({ ...props }: EditProps) => {
 
     useEffect(() => {
         apiFetch({ url: `${endpoint}/fields/all` }).then(
-            (result) => {
+            (result: any) => {
                 setIsLoaded(true);
                 setData(result);
             },
-            (error) => {
+            (error: string) => {
                 setIsLoaded(true);
                 setError(error);
             }

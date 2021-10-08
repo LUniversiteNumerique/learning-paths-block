@@ -16,13 +16,15 @@ const DataView = (props : any) => {
                     return (
                         <section className="lpb-field">
                             <h3 className="lpb-field-name">{row.name}</h3>
-                            { row.diplomas && row.diplomas.map((diploma : any) => {
-                                return (
-                                    <article className="lpb-diploma">
-                                        <h4 className="lpb-diploma-name" data-lpb-id={diploma.id}>{diploma.name}</h4>
-                                    </article>
-                                )
-                            }) }
+                            <div className="lpb-field-content">
+                                { row.diplomas && row.diplomas.map((diploma : any) => {
+                                    return (
+                                        <article className="lpb-diploma">
+                                            <h4 className="lpb-diploma-name" data-lpb-id={diploma.id}>{diploma.name}</h4>
+                                        </article>
+                                    )
+                                }) }
+                            </div>
                         </section>
                     )
                 }) }
