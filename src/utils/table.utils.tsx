@@ -11,13 +11,13 @@ export const createRow = (
 ): JSX.Element => {
     const rows = Object.keys(object).map(key => {
         return key != 'url' 
-            ? <div className={`cell lpb-${name}-${key}`}>
-                { key === 'name'
-                    ? <a href={object['url']} target="_blank">{object['name']}</a>
-                    : object[key]
-                }
-            </div>
-            : null;
+            ?   <div className={`cell lpb-${name}-${key}`}>
+                    { key === 'name'
+                        ? <a href={object['url']} target="_blank">{object['name']}</a>
+                        : object[key]
+                    }
+                </div>
+            :   null;
     });
     return <div className="column">{ rows }</div>;
 };
