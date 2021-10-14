@@ -3,16 +3,27 @@ export type Data =
       id: number;
       name: string;
       description: string;
-      years: Array<{
-        name: string;
-        ue: Array<{
-          name: string;
-          resources: Array<{
-            name: string;
-            type?: string;
-            volume?: string;
-            url: string;
-          }>
-        }>
-      }>;
+      years: Array<YearData>;
+    };
+
+export type YearData = 
+  | {
+      name: string;
+      ue: Array<UeData>
+    };
+
+export type UeData =
+  | {
+      name: string;
+      resources: Array<ResourceData>
+    };
+
+export type ResourceData =
+  | {
+      [key: string]: string | number;
+      [index: number]: string;
+      name: string;
+      type: string;
+      volume: string;
+      url: string;
     };

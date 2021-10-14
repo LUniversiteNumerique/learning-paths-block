@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import DataView from './DataView';
+import FrontendView from './view/FrontendView';
 import { baseURI } from '../utils/utils';
 import type { Data } from '../types/Data';
 
@@ -62,7 +62,7 @@ const View = () => {
             buildHTML(); // Clear the html
 
             fetchAPI(diplomaId).then(data => {
-                const out = <DataView {...data} />;
+                const out = <FrontendView {...data} />;
                 buildHTML(<>{out}</>);
             });
 

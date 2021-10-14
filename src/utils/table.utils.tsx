@@ -1,12 +1,12 @@
 import * as React from 'react';
-import type { Resource } from '../types/Resource';
+import type { ResourceData } from '../types/Data';
 
 export const createHeader = (obj: Object): JSX.Element[] => {
     return Object.entries(obj).map(([_, v]) => <div className="cell th">{ v }</div>);
 }
 
 export const createRow = (
-    object: Resource, 
+    object: ResourceData, 
     name: string
 ): JSX.Element => {
     const rows = Object.keys(object).map(key => {
