@@ -32,7 +32,7 @@ const View = () => {
         return data;
     };
 
-    const fieldListenerEvent = (event: any) => {
+    const fieldListenerEvent = (event: any): void => {
         // Clean the active classes
         [].forEach.call(document.querySelectorAll('.lpb-field-name'), function(item) {
             const element = item as HTMLElement;
@@ -46,7 +46,7 @@ const View = () => {
         }
     };
 
-    const listenerEvent = (event: any) => {
+    const listenerEvent = (event: any): void => {
         // Clean the active classes
         [].forEach.call(document.querySelectorAll('.lpb-diploma'), function(item) {
             const element = item as HTMLElement;
