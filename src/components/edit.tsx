@@ -1,29 +1,22 @@
 import React, { useEffect, useState, FunctionComponent } from 'react';
 import apiFetch from '@wordpress/api-fetch';
-import DataView from './DataView';
-
-interface Attributes {
-    content: string | any;
-}
-
-interface EditProps {
-	attributes: Attributes;
-	setAttributes: (attributes: Attributes) => void;
-}
+import DataView from './view/DataView';
+import { baseURI } from '../utils/utils';
+import { EditProps } from '../types/Edit';
 
 const Edit: FunctionComponent<EditProps> = ({ ...props }: EditProps) => {
-    const endpoint: string = '/wordpress-5.6/wp-content/plugins/learning-paths-api/api.php';
+    const endpoint: string          = baseURI;
     const [error, setError]         = useState<any>(null);
     const [data, setData]           = useState<any>(null);
     const [isLoaded, setIsLoaded]   = useState(false);
 
     useEffect(() => {
         apiFetch({ url: `${endpoint}/fields/all` }).then(
-            (result) => {
+            (result: any) => {
                 setIsLoaded(true);
                 setData(result);
             },
-            (error) => {
+            (error: string) => {
                 setIsLoaded(true);
                 setError(error);
             }
@@ -42,7 +35,7 @@ const Edit: FunctionComponent<EditProps> = ({ ...props }: EditProps) => {
         return ( <DataView content={content} /> );
     }
 
-	return <div>...</div>;
+	return <div />;
 }
 
 export default Edit;

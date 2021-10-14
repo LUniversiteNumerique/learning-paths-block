@@ -3,7 +3,7 @@ import { registerBlockType } from '@wordpress/blocks';
 import Edit from './src/components/edit';
 import Save from './src/components/save';
 
-registerBlockType('learningpathsblock/learningpathsblock-esnext', {
+export default registerBlockType('learningpathsblock/learningpathsblock-esnext', {
     title: 'Learning Paths Block',
     icon: 'universal-access-alt',
     category: 'design',

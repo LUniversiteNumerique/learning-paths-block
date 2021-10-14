@@ -1,1 +1,3 @@
-export const baseURI = 'http://localhost:8888/wordpress-5.6';
+import { BASE_URI, API_URI } from '../../env';
+
+export const baseURI = `${BASE_URI}/${API_URI}`;
