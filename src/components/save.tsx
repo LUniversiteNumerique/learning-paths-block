@@ -1,5 +1,5 @@
 import * as React from 'react';
-import DataView from './DataView';
+import DataView from './view/DataView';
 
 const Save = (props : any) => {
     const content = props.attributes.content;

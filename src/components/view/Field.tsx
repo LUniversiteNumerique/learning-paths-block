@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Field as FieldProps } from '../types/Field';
+import { Field as FieldProps } from '../../types/Field';
 import Diploma from './Diploma';
 
 const Field = (field: FieldProps): JSX.Element => {

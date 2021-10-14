@@ -1,6 +1,6 @@
 import React, { useEffect, useState, FunctionComponent } from 'react';
 import apiFetch from '@wordpress/api-fetch';
-import DataView from './DataView';
+import DataView from './view/DataView';
 import { baseURI } from '../utils/utils';
 import { EditProps } from '../types/Edit';
 
