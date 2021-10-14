@@ -3,7 +3,7 @@ import DataView from './DataView';
 
 const Save = (props : any) => {
     const content = props.attributes.content;
-    return ( <DataView content={content} /> );
+    return (<DataView content={content} />);
 };
 
 export default Save;

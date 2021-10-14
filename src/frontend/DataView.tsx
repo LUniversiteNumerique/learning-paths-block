@@ -1,8 +1,8 @@
 import * as React from 'react';
 import strings from '../utils/strings.utils';
-import { Resource } from '../types/Resource';
-import { Diploma } from '../types/Diploma';
 import { createRow, createHeader } from '../utils/table.utils';
+import type { Resource } from '../types/Resource';
+import type { Diploma } from '../types/Diploma';
 
 const DataView = (data : Diploma) => {
     return (
@@ -14,21 +14,22 @@ const DataView = (data : Diploma) => {
                 return (
                     <>
                         <h5>{year.name}</h5>
-                        <table>
-                            <thead>
-                                <tr>{createHeader(strings.thead)}</tr>
-                            </thead>
+                        <div className="flex-table">
                             { year.ue && year.ue.map((ue : any) => {
-                                return ue.resources 
-                                    ? <tbody>
-                                        { ue.resources 
-                                            && ue.resources.map((resource: Resource, i: number): JSX.Element => {
-                                            return createRow(resource, ue, "resource", ue.resources.length, i)
-                                        }) }
-                                    </tbody> 
-                                    : null
+                                return ue.resources && ue.name
+                                    ?   <div className="column-wrapper">
+                                            <h6 className="lpb-ue-name">{ ue.name }</h6>
+                                            <div className="column header">
+                                                { createHeader(strings.thead) }
+                                            </div>
+                                            { ue.resources 
+                                                && ue.resources.map((resource: Resource): JSX.Element => {
+                                                return createRow(resource, "resource")
+                                            }) }
+                                        </div> 
+                                    :   null
                             }) }
-                        </table>
+                        </div>
                     </>
                 )
             }) }

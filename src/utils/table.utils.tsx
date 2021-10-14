@@ -1,35 +1,23 @@
 import * as React from 'react';
-import { Resource } from '../types/Resource';
+import type { Resource } from '../types/Resource';
+
+export const createHeader = (obj: Object): JSX.Element[] => {
+    return Object.entries(obj).map(([_, v]) => <div className="cell th">{ v }</div>);
+}
 
 export const createRow = (
     object: Resource, 
-    parent: any, 
-    name: string, 
-    length: number, 
-    iteration: number
+    name: string
 ): JSX.Element => {
     const rows = Object.keys(object).map(key => {
         return key != 'url' 
-            ? <td className={`lpb-${name}-${key}`}>
+            ? <div className={`cell lpb-${name}-${key}`}>
                 { key === 'name'
                     ? <a href={object['url']} target="_blank">{object['name']}</a>
                     : object[key]
                 }
-            </td>
+            </div>
             : null;
     });
-    return (
-        <tr>
-            { iteration === 0 
-                ? <th rowSpan={length+1} className="ue-name">
-                    {parent.name}
-                </th>
-                : null }
-            {rows}
-        </tr>
-    );
+    return <div className="column">{ rows }</div>;
 };
-
-export const createHeader = (obj: Object): JSX.Element[] => {
-    return Object.entries(obj).map(([_, v]) => <th>{v}</th>);
-}

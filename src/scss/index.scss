@@ -10,6 +10,12 @@ $greenBgAlt:#dff4f2;
     padding: .25em .75em;
 }
 
+.lpb-ue-name {
+    @include tableBorder();
+    background-color: $greenBg !important;
+    color: white !important;
+}
+
 .lpb-container {
     display: flex;
     flex-direction: row;
@@ -138,39 +144,38 @@ $greenBgAlt:#dff4f2;
             }
 
             #lpb-modal-content-body {
-                table {
-                    thead {
-                        tr {
-                            th {
-                                @include tableBorder();
-                                background-color: $greenBg;
-                                color: white;
-                            }
-                        }
-                    }
-                
-                    tbody {
-                        tr {
-                            th {
-                                @include tableBorder();
-                                background-color: $greenBgAlt;
-                            }
+                .flex-table {
+                    .column-wrapper {
+                        .column {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: flex-start;
+                            flex-wrap: nowrap;
 
-                            td {
-                                @include tableBorder();
-                                font-size: .85em;
-                                
-                                &.lpb-resource-name {
-                                    font-size: 1em;
+                            &.header {
+                                .th {
+                                    @include tableBorder();
+                                    background-color: $greenBg;
+                                    color: white;
                                 }
                             }
 
-                            &:nth-child(even) {
-                                background-color: white;
-                            }
+                            .cell {
+                                width: 40%;
+                                border: 2px solid white;
+                                padding: .25em .75em;
+                                font-size: .85em;
+                                @include tableBorder();
+                                font-size: .85em;
+                                    
+                                &.lpb-resource-name {
+                                    font-size: 1em;
+                                }
 
-                            &:nth-child(odd) {
-                                background-color: $greyBg;
+                                &.tbody-th {
+                                    @include tableBorder();
+                                    background-color: $greenBgAlt;
+                                }
                             }
                         }
                     }
