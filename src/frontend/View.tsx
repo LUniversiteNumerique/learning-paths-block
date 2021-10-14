@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import DataView from './DataView';
 import { baseURI } from '../utils/utils';
+import type { Data } from '../types/Data';
 
 const View = () => {
     const [html, setHTML] = useState<JSX.Element[]>([]);
@@ -17,7 +18,7 @@ const View = () => {
         });
     }, []);
 
-    const buildHTML = (data?: JSX.Element) => {
+    const buildHTML = (data?: JSX.Element): void => {
         if (data === undefined) {
             setHTML([]);
         } else {
@@ -25,7 +26,7 @@ const View = () => {
         }
     };
 
-    const fetchAPI = async (id: number) => {
+    const fetchAPI = async (id: number): Promise<Data> => {
         const response = await fetch(`${baseURI}/data/${id}`);
         const data = await response.json();
         return data;

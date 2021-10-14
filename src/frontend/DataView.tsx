@@ -2,9 +2,9 @@ import * as React from 'react';
 import strings from '../utils/strings.utils';
 import { createRow, createHeader } from '../utils/table.utils';
 import type { Resource } from '../types/Resource';
-import type { Diploma } from '../types/Diploma';
+import type { Data } from '../types/Data';
 
-const DataView = (data : Diploma) => {
+const DataView = (data: Data) => {
     return (
         <article className="lpb-diploma">
             <h4 className="lpb-diploma-name">{data.name}</h4>
