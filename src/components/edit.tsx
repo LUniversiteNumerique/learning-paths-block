@@ -2,15 +2,7 @@ import React, { useEffect, useState, FunctionComponent } from 'react';
 import apiFetch from '@wordpress/api-fetch';
 import DataView from './DataView';
 import { baseURI } from '../utils/utils';
-
-interface Attributes {
-    content: string | any;
-}
-
-interface EditProps {
-	attributes: Attributes;
-	setAttributes: (attributes: Attributes) => void;
-}
+import { EditProps } from '../types/Edit';
 
 const Edit: FunctionComponent<EditProps> = ({ ...props }: EditProps) => {
     const endpoint: string          = baseURI;
