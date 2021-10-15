@@ -3,6 +3,6 @@ export default {
     thead: {
         resource: "Ressource",
         types: "Types",
-        volume: "Volumes approximatifs"
+        volume: "Volumes"
     }
 }
