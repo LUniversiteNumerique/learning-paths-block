@@ -6,7 +6,7 @@ const Year = (year: YearData) => {
     const [selected, setSelected] = useState<boolean>(false);
 
     const handleSelection = () => {
-        setSelected(true);
+        setSelected(!selected);
     };
 
     return (
