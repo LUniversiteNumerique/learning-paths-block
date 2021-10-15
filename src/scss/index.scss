@@ -19,6 +19,12 @@ $greenBgAlt:  #dff4f2;
     color: white !important;
 }
 
+@keyframes rotate-rt {
+    0% { -webkit-transform: rotate(0deg); }
+    25% { -webkit-transform: rotate(180deg); }
+    100% { -webkit-transform: rotate(180deg); }
+}
+
 .lpb-container {
     display: flex;
     flex-direction: row;
@@ -170,6 +176,26 @@ $greenBgAlt:  #dff4f2;
 
                     &:hover {
                         cursor: pointer;
+                    }
+
+                    &:after {
+                        content: " ";
+                        width: 37px;
+                        height: 37px;
+                        background-image: url(../assets/chevron-right.svg);
+                        background-repeat: no-repeat;
+                        position: relative;
+                        margin-right: 0;
+                        float: right;
+                        -webkit-animation: all 1s ease;
+                        -moz-animation: all 1s ease;
+                        animation: all 1s ease;
+                    }
+
+                    &.active {
+                        &:after {
+                            background-image: url(../assets/chevron-down.svg);
+                        }
                     }
                 }
 

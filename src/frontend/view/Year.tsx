@@ -11,7 +11,10 @@ const Year = (year: YearData) => {
 
     return (
         <>
-            <h5 className="lpb-year-name" onClick={() => handleSelection()}>
+            <h5 
+                className={`lpb-year-name ${selected ? 'active' : ''}`}
+                onClick={() => handleSelection()}
+            >
                 {year.name}
             </h5>
             <div className={`flex-table ${selected ? 'active' : ''}`}>
