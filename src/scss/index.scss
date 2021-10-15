@@ -162,12 +162,24 @@ $greenBgAlt:  #dff4f2;
                     }
                 }
                 
-                h5 {
+                .lpb-year-name {
                     color: $blue;
                     font-size: 1.45em;
+                    border: 2px solid $blue;
+                    padding: 0.25em 0.5em;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
                 }
 
                 .flex-table {
+                    display: none;
+
+                    &.active {
+                        display: flex;
+                    }
+
                     .column-wrapper {
                         margin-bottom: 3em;
 
