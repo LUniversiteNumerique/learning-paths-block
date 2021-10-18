@@ -2,7 +2,7 @@ import * as React from 'react';
 import Year from './Year';
 import type { Data } from '../../types/Data';
 
-const FrontendView = (data: Data) => {
+const FrontendView = (data: Data): JSX.Element => {
     return (
         <article className="lpb-diploma">
             <h4 className="lpb-diploma-name">{data.name}</h4>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import FrontendView from './view/FrontendView';
+import Loader from './view/Loader';
 import { baseURI } from '../utils/utils';
 import type { Data } from '../types/Data';
 
@@ -18,12 +19,8 @@ const View = () => {
         });
     }, []);
 
-    const buildHTML = (data?: JSX.Element): void => {
-        if (data === undefined) {
-            setHTML([]);
-        } else {
-            setHTML(rest => [...rest, data]);
-        }
+    const buildHTML = (data: JSX.Element): void => {
+        setHTML([data]);
     };
 
     const fetchAPI = async (id: number): Promise<Data> => {
@@ -49,7 +46,7 @@ const View = () => {
     const listenerEvent = (event: any): void => {
         // Clean the active classes
         [].forEach.call(document.querySelectorAll('.lpb-diploma'), function(item) {
-            const element = item as HTMLElement;
+            const element = item as HTMLElement; 
             element.classList.remove('active');
         });
         // Set the new active class
@@ -59,7 +56,7 @@ const View = () => {
 
         if (parent) {
             parent.classList.toggle('active');
-            buildHTML(); // Clear the html
+            buildHTML(<Loader />); // Clear the html
 
             fetchAPI(diplomaId).then(data => {
                 const out = <FrontendView {...data} />;
