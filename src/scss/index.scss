@@ -7,6 +7,7 @@ $grayTextDark:#42494f;
 $green:       #148084;
 $greenBg:     #92c7c4;
 $greenBgAlt:  #dff4f2;
+$modalMinVH:    40vh;
 
 @mixin tableBorder() {
     border: 2px solid transparent;
@@ -23,6 +24,29 @@ $greenBgAlt:  #dff4f2;
     0% { -webkit-transform: rotate(0deg); }
     25% { -webkit-transform: rotate(180deg); }
     100% { -webkit-transform: rotate(180deg); }
+}
+
+@keyframes flipX {
+    0% {
+        opacity: 0;
+        -webkit-transform: perspective(400px) translateZ(0) rotateX(0) rotateY(0) scale(1);
+        transform: perspective(400px) translateZ(0) rotateX(0) rotateY(0) scale(1);
+    }
+    33% {
+        opacity: 1;
+        -webkit-transform: perspective(400px) translateZ(0) rotateX(180deg) rotateY(0) scale(1);
+        transform: perspective(400px) translateZ(0) rotateX(180deg) rotateY(0) scale(1);
+    }
+    66% {
+        opacity: 0;
+        -webkit-transform: perspective(400px) translateZ(0) rotateY(180deg) scale(1);
+        transform: perspective(400px) translateZ(0) rotateY(180deg) scale(1);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: perspective(400px) translateZ(0) rotateY(180deg) scale(1);
+        transform: perspective(400px) translateZ(0) rotateY(180deg) scale(1);
+    }
 }
 
 .lpb-container {
@@ -137,7 +161,7 @@ $greenBgAlt:  #dff4f2;
             padding: 20px;
             border: 1px solid $greyBg;
             width: 90%;
-            min-height: 50vh;
+            min-height: $modalMinVH;
 
             #lpb-modal-close {
                 color: $greenBg;
@@ -154,6 +178,29 @@ $greenBgAlt:  #dff4f2;
             }
 
             #lpb-modal-content-body {
+                .loader {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    height: $modalMinVH;
+
+                    h6 {
+                        color: $blue;
+                    }
+
+                    .loader-inner {
+                        opacity: 0;
+                        width: 80px;
+                        height: 80px;
+                        border-radius: 50%;
+                        background: rgb(185,218,252);
+                        background: linear-gradient(0deg, rgba(185,218,252,1) 0%, rgba(250,231,229,1) 100%);
+                        -webkit-animation: flipX 3s cubic-bezier(0.2, 0.3, 0.25, 0.9) infinite;
+                        animation: flipX 3s cubic-bezier(0.2, 0.3, 0.25, 0.9) infinite;
+                    }
+                }
+
                 .lpb-diploma-name {
                     color: $blue;
                     margin-top: 0.45em;
