@@ -14,6 +14,20 @@ $modalMinVH:    40vh;
     padding: .25em .75em;
 }
 
+@mixin flipAnim($opacity, $perspective, $translateZ, $rotateX, $rotateY, $scale) {
+    opacity: $opacity;
+    -webkit-transform: perspective($perspective) translateZ($translateZ) rotateX($rotateX) rotateY($rotateY) scale($scale);
+    transform: perspective($perspective) translateZ($translateZ) rotateX($rotateX) rotateY($rotateY) scale($scale);
+}
+
+@mixin colorBgBorder($borderTop, $borderRight, $borderBottom, $borderLeft, $borderCorlor, $bgColor, $color) {
+    border-width: $borderTop $borderRight $borderBottom $borderLeft;
+    border-color: $borderCorlor;
+    border-style: solid;
+    background-color: $bgColor;
+    color: $color;
+}
+
 .lpb-ue-name {
     @include tableBorder();
     background-color: $greenBg !important;
@@ -26,27 +40,11 @@ $modalMinVH:    40vh;
     100% { -webkit-transform: rotate(180deg); }
 }
 
-@keyframes flipX {
-    0% {
-        opacity: 0;
-        -webkit-transform: perspective(400px) translateZ(0) rotateX(0) rotateY(0) scale(1);
-        transform: perspective(400px) translateZ(0) rotateX(0) rotateY(0) scale(1);
-    }
-    33% {
-        opacity: 1;
-        -webkit-transform: perspective(400px) translateZ(0) rotateX(180deg) rotateY(0) scale(1);
-        transform: perspective(400px) translateZ(0) rotateX(180deg) rotateY(0) scale(1);
-    }
-    66% {
-        opacity: 0;
-        -webkit-transform: perspective(400px) translateZ(0) rotateY(180deg) scale(1);
-        transform: perspective(400px) translateZ(0) rotateY(180deg) scale(1);
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: perspective(400px) translateZ(0) rotateY(180deg) scale(1);
-        transform: perspective(400px) translateZ(0) rotateY(180deg) scale(1);
-    }
+@keyframes flip {
+    0% { @include flipAnim(0, 400px, 0, 0, 0, 1); }
+    33% { @include flipAnim(1, 400px, 0, 180deg, 0, 1); }
+    66% { @include flipAnim(0, 400px, 0, 0, 180deg, 1); }
+    100% { @include flipAnim(1, 400px, 0, 0, 180deg, 1); }
 }
 
 .lpb-container {
@@ -65,11 +63,9 @@ $modalMinVH:    40vh;
 
             &.active {
                 .lpb-field-name {
-                    background-color: transparent;
-                    color: $blue;
+                    @include colorBgBorder(0, 0, 4px, 0, $blue, transparent, $blue);
                     padding-left: 0;
                     padding-right: 0;
-                    border-bottom: 4px solid $blue;
                 }
 
                 .lpb-field-content {
@@ -79,14 +75,9 @@ $modalMinVH:    40vh;
             }
 
             .lpb-field-name {
-                background-color: $blue;
-                border-bottom: 4px solid transparent;
-                color: white;
+                @include colorBgBorder(0, 0, 4px, 0, transparent, $blue, white);
                 transition: 0.2s all ease;
-                padding-top: 10px;
-                padding-bottom: 6px;
-                padding-left: 15px;
-                padding-right: 15px;
+                padding: 10px 15px 6px 15px;
                 margin: 10px 0;
 
                 &:hover {
@@ -108,8 +99,7 @@ $modalMinVH:    40vh;
 
                     &.active {
                         .lpb-diploma-name {
-                            background-color: $green;
-                            color: white;
+                            @include colorBgBorder(0, 0, 0, 0, transparent, $green, white);
                         }
                         .lpb-diploma-description {
                             display: flex;
@@ -117,9 +107,8 @@ $modalMinVH:    40vh;
                     }
 
                     .lpb-diploma-name {
+                        @include colorBgBorder(0, 0, 0, 0, transparent, $greyBg, $green);
                         flex-basis: 30%;
-                        background-color: $greyBg;
-                        color: $green;
                         padding: 10px 15px;
                         margin: 0;
                         font-size: 1.05em;
@@ -154,14 +143,12 @@ $modalMinVH:    40vh;
         width: 100%;
         height: 100%;
         overflow: auto;
-        background-color: rgb(0, 0, 0);
         background-color: rgba(0, 0, 0, 0.3);
 
         #lpb-modal-content {
-            background-color: #fefefe;
+            @include colorBgBorder(1px, 1px, 1px, 1px, $greyBg, #fefefe, inherit);
             margin: 12% auto;
             padding: 20px;
-            border: 1px solid $greyBg;
             width: 90%;
             min-height: $modalMinVH;
 
@@ -198,8 +185,8 @@ $modalMinVH:    40vh;
                         border-radius: 50%;
                         background: rgb(185,218,252);
                         background: linear-gradient(0deg, rgba(185,218,252,1) 0%, rgba(250,231,229,1) 100%);
-                        -webkit-animation: flipX 3s cubic-bezier(0.2, 0.3, 0.25, 0.9) infinite;
-                        animation: flipX 3s cubic-bezier(0.2, 0.3, 0.25, 0.9) infinite;
+                        -webkit-animation: flip 3s cubic-bezier(0.2, 0.3, 0.25, 0.9) infinite;
+                        animation: flip 3s cubic-bezier(0.2, 0.3, 0.25, 0.9) infinite;
                     }
                 }
 
@@ -217,10 +204,8 @@ $modalMinVH:    40vh;
                     padding: 0 !important;
                 
                     .lpb-year-name {
-                        background-color: $blue;
-                        color: white;
+                        @include colorBgBorder(2px, 2px, 2px, 2px, transparent, $blue, white);
                         font-size: 1.45em;
-                        border: 2px solid transparent;
                         padding: 0.25em 0.5em;
 
                         &:hover {
@@ -242,10 +227,7 @@ $modalMinVH:    40vh;
                         }
 
                         &.active {
-                            background-color: white;
-                            color: $blue;
-                            border: 2px solid $blue;
-
+                            @include colorBgBorder(2px, 2px, 2px, 2px, $blue, white, $blue);
                             &:after {
                                 background-image: url(../assets/chevron-down.svg);
                             }
@@ -284,11 +266,7 @@ $modalMinVH:    40vh;
 
                             &.header {
                                 .th {
-                                    border-width: 0 2px 0 2px;
-                                    border-color: white;
-                                    background-color: $greenBg;
-                                    color: white;
-
+                                    @include colorBgBorder(0, 2px, 0, 2px, white, $greenBg, white);
                                     &:first-child {
                                         border-width: 0 2px 2px 0;
                                     }
@@ -299,11 +277,9 @@ $modalMinVH:    40vh;
                             }
 
                             .cell {
-                                width: 25%;
-                                border: 2px solid white;
-                                padding: .25em .75em;
-                                font-size: .85em;
                                 @include tableBorder();
+                                width: 25%;
+                                padding: .25em .75em;
                                 font-size: .85em;
 
                                 &:first-child {
