@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+
 const Modal = (): JSX.Element => {
     return (
         <div id="lpb-modal">

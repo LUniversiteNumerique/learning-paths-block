@@ -4,6 +4,7 @@ import Loader from './view/Loader';
 import { baseURI } from '../utils/utils';
 import type { Data } from '../types/Data';
 
+
 const View = () => {
     const [html, setHTML] = useState<JSX.Element[]>([]);
     const modal = document.getElementById('lpb-modal') as HTMLElement;

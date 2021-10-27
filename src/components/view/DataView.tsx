@@ -4,6 +4,7 @@ import Field from './Field';
 
 const DataView = (props : any) => {
     const content = props.content;
+
     return (
         <div className="lpb-container">
             <Modal />
