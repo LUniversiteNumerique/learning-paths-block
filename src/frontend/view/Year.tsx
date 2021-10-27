@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { createRef, useState } from 'react';
 import Ue from './Ue';
 import type { YearData } from '../../types/Data';
 
+
 const Year = (year: YearData) => {
     const [selected, setSelected] = useState<boolean>(false);
+    const el = createRef<HTMLHeadingElement>();
 
     const handleSelection = () => {
         setSelected(!selected);
@@ -12,6 +14,7 @@ const Year = (year: YearData) => {
     return (
         <>
             <h5 
+                ref={el}
                 className={`lpb-year-name ${selected ? 'active' : ''}`}
                 onClick={() => handleSelection()}
             >

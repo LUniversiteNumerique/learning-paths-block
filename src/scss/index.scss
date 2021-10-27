@@ -58,6 +58,7 @@ $modalMinVH:    40vh;
         padding-left: 0;
 
         .lpb-field {
+            padding: 0 !important;
             display: flex;
             flex-direction: column;
             overscroll-behavior: contain;
@@ -132,6 +133,7 @@ $modalMinVH:    40vh;
 
                     .lpb-diploma-body {
                         display: none;
+                        padding: 0 !important;
 
                         &.active {
                             display: flex;
@@ -146,7 +148,7 @@ $modalMinVH:    40vh;
     #lpb-modal {
         display: none;
         position: fixed;
-        z-index: 1;
+        z-index: 100;
         left: 0;
         top: 0;
         width: 100%;
@@ -208,119 +210,124 @@ $modalMinVH:    40vh;
                 }
 
                 .lpb-diploma-description {
-                    color: $greyTextAlt;
-
-                    strong, b {
-                        color: $grayTextDark;
-                    }
-                }
-                
-                .lpb-year-name {
                     color: $blue;
-                    font-size: 1.45em;
-                    border: 2px solid $blue;
-                    padding: 0.25em 0.5em;
-
-                    &:hover {
-                        cursor: pointer;
-                    }
-
-                    &:after {
-                        content: " ";
-                        width: 37px;
-                        height: 37px;
-                        background-image: url(../assets/chevron-right.svg);
-                        background-repeat: no-repeat;
-                        position: relative;
-                        margin-right: 0;
-                        float: right;
-                        -webkit-animation: all 1s ease;
-                        -moz-animation: all 1s ease;
-                        animation: all 1s ease;
-                    }
-
-                    &.active {
-                        &:after {
-                            background-image: url(../assets/chevron-down.svg);
-                        }
-                    }
                 }
 
-                .flex-table {
-                    display: none;
+                .lpb-diploma-body {
+                    padding: 0 !important;
+                
+                    .lpb-year-name {
+                        background-color: $blue;
+                        color: white;
+                        font-size: 1.45em;
+                        border: 2px solid transparent;
+                        padding: 0.25em 0.5em;
 
-                    &.active {
-                        display: block;
-                    }
-
-                    .column-wrapper {
-                        margin-bottom: 3em;
-
-                        .lpb-ue-name {
-                            background-color: $blue;
-                            font-size: 1.1em;
-                            color: white;
-                            padding: .5em .75em;
-                            margin-top: 1.75em;
-                            margin-bottom: 4px;
+                        &:hover {
+                            cursor: pointer;
                         }
 
-                        .column {
-                            display: flex;
-                            flex-direction: row;
-                            align-items: flex-start;
-                            flex-wrap: nowrap;
+                        &:after {
+                            content: " ";
+                            width: 37px;
+                            height: 37px;
+                            background-image: url(../assets/chevron-right.svg);
+                            background-repeat: no-repeat;
+                            position: relative;
+                            margin-right: 0;
+                            float: right;
+                            -webkit-animation: all 1s ease;
+                            -moz-animation: all 1s ease;
+                            animation: all 1s ease;
+                        }
 
-                            &:nth-child(even) {
-                                background-color: $greyBgAlt;
+                        &.active {
+                            background-color: white;
+                            color: $blue;
+                            border: 2px solid $blue;
+
+                            &:after {
+                                background-image: url(../assets/chevron-down.svg);
+                            }
+                        }
+                    }
+
+                    .flex-table {
+                        display: none;
+
+                        &.active {
+                            display: block;
+                        }
+
+                        .column-wrapper {
+                            margin-bottom: 3em;
+
+                            .lpb-ue-name {
+                                background: linear-gradient(90deg, rgba(250,231,229,1) 0%, rgba(185,218,252,1) 100%);
+                                font-size: 1.1em;
+                                color: $blue !important;
+                                padding: .75em .5em;
+                                margin-top: 1.75em;
+                                margin-bottom: 4px;
                             }
 
-                            &.header {
-                                .th {
-                                    border-width: 0 2px 0 2px;
-                                    border-color: white;
-                                    background-color: $greenBg;
-                                    color: white;
+                            .column {
+                                display: flex;
+                                flex-direction: row;
+                                align-items: flex-start;
+                                flex-wrap: nowrap;
+
+                                &:nth-child(even) {
+                                    background-color: $greyBgAlt;
+                                }
+
+                                &.header {
+                                    .th {
+                                        border-width: 0 2px 0 2px;
+                                        border-color: white;
+                                        background-color: $greenBg;
+                                        color: white;
+
+                                        &:first-child {
+                                            border-width: 0 2px 2px 0;
+                                        }
+                                        &:last-child {
+                                            border-width: 0 0 2px 2px;
+                                        }
+                                    }
+                                }
+
+                                .cell {
+                                    width: 25%;
+                                    border: 2px solid white;
+                                    padding: .25em .75em;
+                                    font-size: .85em;
+                                    @include tableBorder();
+                                    font-size: .85em;
 
                                     &:first-child {
-                                        border-width: 0 2px 2px 0;
+                                        width: 60%;
                                     }
+
                                     &:last-child {
-                                        border-width: 0 0 2px 2px;
+                                        width: 15%;
                                     }
-                                }
+                                        
+                                    &.lpb-resource-name {
+                                        font-size: 1em;
+
+                                        a {
+                                            color: $green;
+                                            text-decoration: underline;
+                                        }
+                                    }
+
+                                    &.tbody-th {
+                                        @include tableBorder();
+                                        background-color: $greenBgAlt;
+                                    }
+                                }                           
                             }
-
-                            .cell {
-                                width: 25%;
-                                border: 2px solid white;
-                                padding: .25em .75em;
-                                font-size: .85em;
-                                @include tableBorder();
-                                font-size: .85em;
-
-                                &:first-child {
-                                    width: 60%;
-                                }
-
-                                &:last-child {
-                                    width: 15%;
-                                }
-                                    
-                                &.lpb-resource-name {
-                                    font-size: 1em;
-
-                                    a {
-                                        color: $green;
-                                        text-decoration: underline;
-                                    }
-                                }
-
-                                &.tbody-th {
-                                    @include tableBorder();
-                                    background-color: $greenBgAlt;
-                                }
-                            }                           
                         }
                     }
                 }
