@@ -8,6 +8,7 @@ $green:       #148084;
 $greenBg:     #92c7c4;
 $greenBgAlt:  #dff4f2;
 $modalMinVH:    40vh;
+$contentMaxWidth: 1180px;
 
 @mixin tableBorder() {
     border: 2px solid transparent;
@@ -53,6 +54,7 @@ $modalMinVH:    40vh;
 
     ul.lpb-diploma-list {
         width: 100%;
+        max-width: $contentMaxWidth;
         padding-left: 0;
 
         .lpb-field {
@@ -149,7 +151,7 @@ $modalMinVH:    40vh;
             @include colorBgBorder(1px, 1px, 1px, 1px, $greyBg, #fefefe, inherit);
             margin: 12% auto;
             padding: 20px;
-            width: 90%;
+            max-width: $contentMaxWidth;
             min-height: $modalMinVH;
 
             #lpb-modal-close {
