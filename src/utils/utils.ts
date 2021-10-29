@@ -1,3 +1,5 @@
-import { BASE_URI, API_URI } from '../../env';
+// @ts-nocheck
+const LEARNINGPATHBLOCK_API_SETTING = LEARNINGPATHBLOCK.apiurl;
 
-export const baseURI = `${BASE_URI}/${API_URI}`;
+export const baseURI = LEARNINGPATHBLOCK_API_SETTING;
+

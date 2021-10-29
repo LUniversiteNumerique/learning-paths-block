@@ -5,6 +5,7 @@ import Loading from '../frontend/components/Loader';
 import { baseURI } from '../utils/utils';
 import { EditProps } from '../types/Edit';
 
+
 const Edit: FunctionComponent<EditProps> = ({ ...props }: EditProps) => {
     const endpoint: string          = baseURI;
     const [error, setError]         = useState<any>(null);
