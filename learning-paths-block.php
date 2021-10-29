@@ -49,7 +49,7 @@ function learningpathsblock_frontend_scripts() {
         'learningpathsblock-frontend',
         $script_file,
         $asset_file['dependencies'],
-		$asset_file['version']
+        $asset_file['version']
     );
     wp_localize_script(
         'learningpathsblock-frontend',
