@@ -1,6 +1,7 @@
 import React, { useEffect, useState, FunctionComponent } from 'react';
 import apiFetch from '@wordpress/api-fetch';
 import DataView from './view/DataView';
+import Loading from '../frontend/components/Loader';
 import { baseURI } from '../utils/utils';
 import { EditProps } from '../types/Edit';
 
@@ -26,7 +27,7 @@ const Edit: FunctionComponent<EditProps> = ({ ...props }: EditProps) => {
     if (error) {
         return <p>Error : { error.message }</p>;
     } else if (! isLoaded) {
-        return <p>Loading data...</p>;
+        return <Loading />;
     } else if (data && data.fields[0]) {
         props.setAttributes({ 
             content: data.fields,

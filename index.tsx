@@ -13,5 +13,5 @@ export default registerBlockType('learningpathsblock/learningpathsblock-esnext',
         }
     },
     edit: (props) => <Edit {...props} />,
-    save: (props) => <Save {...props} />
+    save: () => <Save />
 });

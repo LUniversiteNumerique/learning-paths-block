@@ -1,8 +1,13 @@
 import * as React from 'react';
 const WPElement = require('@wordpress/element');
-import View from './View';
+import AppProvider from './components/Context';
+import App from './components/App';
+
+const apiUrl = 'https://test.luniversitenumerique.fr/wp-json/learningpathsapi/v1';
 
 WPElement.render(
-    <View />, 
-    document.getElementById('lpb-modal-content-body')
+    <AppProvider>
+        <App apiUrl={apiUrl} />
+    </AppProvider>,
+    document.getElementById('learningpaths-block-root')
 );
