@@ -1,9 +1,12 @@
 import * as React from 'react';
-import DataView from './view/DataView';
+import Loading from '../frontend/components/Loader';
 
-const Save = (props : any) => {
-    const content = props.attributes.content;
-    return (<DataView content={content} />);
+const Save = () => {
+    return (
+        <div id="learningpaths-block-root">
+            <Loading />
+        </div>
+    );
 };
 
 export default Save;

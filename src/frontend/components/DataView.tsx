@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Year from './Year';
-import type { Data } from '../../types/Data';
+import type { Data as DataProps } from '../../types/Data';
 
-const FrontendView = (data: Data): JSX.Element => {
+const DataView = (data: DataProps): JSX.Element => {
     return (
         <article className="lpb-diploma">
             <h4 className="lpb-diploma-name">{data.name}</h4>
@@ -16,4 +16,4 @@ const FrontendView = (data: Data): JSX.Element => {
     )
 };
 
-export default FrontendView;
+export default DataView;
