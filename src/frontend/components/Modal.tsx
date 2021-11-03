@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { AppContext } from './Context';
 import DataView from './DataView';
 import Loader from './Loader';
+import strings from '../../utils/strings.utils';
 
 
 const Modal = (): JSX.Element => {
@@ -44,7 +45,12 @@ const Modal = (): JSX.Element => {
     }
 
     return (
-        <div id="lpb-modal" className={`${showModal ? "active" : ""}`}>
+        <div 
+            id="lpb-modal" 
+            className={`${showModal ? "active" : ""}`}
+            aria-hidden={`${showModal ? "false" : "true"}`}
+            aria-describedby="modal-desc"
+        >
             <div 
                 ref={modalRef}
                 id="lpb-modal-content"
@@ -60,6 +66,9 @@ const Modal = (): JSX.Element => {
                         ? <Loader />
                         : <DataView {...currentData} />
                     }
+                </div>
+                <div id="modal-desc" className="screenreader-text">
+                    { strings.modalDesc }
                 </div>
             </div>
         </div>
