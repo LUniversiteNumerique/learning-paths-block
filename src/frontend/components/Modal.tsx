@@ -13,6 +13,7 @@ const Modal = (): JSX.Element => {
     useEffect(() => {
         if (currentData && currentData != {} && currentData != []) {
             setShowModal(true);
+            modalRef.current?.focus();
         }
     });
 
@@ -54,7 +55,7 @@ const Modal = (): JSX.Element => {
             <div 
                 ref={modalRef}
                 id="lpb-modal-content"
-                tabIndex={-1}
+                tabIndex={parseInt(`${showModal ? -1 : 0}`)}
             >
                 <span 
                     id="lpb-modal-close"
