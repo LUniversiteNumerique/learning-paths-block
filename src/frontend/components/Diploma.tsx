@@ -25,14 +25,22 @@ const Diploma = (params: Params): JSX.Element => {
         return await response.json();
     };
 
+    const handleKeypress = (event: KeyboardEvent) => {
+        if (event.key == '13' || event.keyCode === 13) {
+            fetchData(params.id);
+        }
+    }
+
     return (
         <article 
             className="lpb-diploma"
             onClick={() => fetchData(params.id)}
+            onKeyDown={(event: any) => handleKeypress(event)}
         >
             <h4 
                 className="lpb-diploma-name" 
                 data-lpb-id={params.id}
+                tabIndex={0}
             >
                 {params.name}
             </h4>

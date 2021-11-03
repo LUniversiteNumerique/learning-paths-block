@@ -39,7 +39,7 @@ const Modal = (): JSX.Element => {
     }
 
     const handleEscape = (event: KeyboardEvent) => {
-        if (event.key || event.keyCode === 27) {
+        if (event.key == '27' || event.keyCode === 27) {
             closeModal();
         }
     }
@@ -54,6 +54,7 @@ const Modal = (): JSX.Element => {
             <div 
                 ref={modalRef}
                 id="lpb-modal-content"
+                tabIndex={-1}
             >
                 <span 
                     id="lpb-modal-close"
