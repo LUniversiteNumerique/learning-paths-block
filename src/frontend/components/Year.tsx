@@ -20,6 +20,7 @@ const Year = (year: YearData) => {
                 className={`lpb-year-name ${selected ? 'active' : ''}`}
                 onClick={() => handleSelection()}
                 onKeyDown={(event: any) => handleKeypress(event)}
+                tabIndex={0}
             >
                 {year.name}
             </h5>
