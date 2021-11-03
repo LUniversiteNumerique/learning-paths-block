@@ -26,8 +26,21 @@ const Modal = (): JSX.Element => {
         return () => document.removeEventListener("click", handleClick);
     }, []);
 
+    useEffect(() => {
+        window.addEventListener("keydown", handleEscape, false);
+        return () => {
+            window.removeEventListener("keydown", handleEscape, false);
+        };
+    });
+
     const closeModal = () => { 
         setCurrentData(null), setShowModal(false);
+    }
+
+    const handleEscape = (event: KeyboardEvent) => {
+        if (event.key || event.keyCode === 27) {
+            closeModal();
+        }
     }
 
     return (
