@@ -4,5 +4,6 @@ export default {
         resource: "Ressource",
         types: "Types",
         volume: "Volumes"
-    }
+    },
+    modalDesc: "Cette fenêtre surgissante affiche les parcours et contenus du diplôme sélectionné dans la liste."
 }

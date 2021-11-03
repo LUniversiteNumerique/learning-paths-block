@@ -162,6 +162,11 @@ $contentMaxWidth: 1180px;
             max-width: $contentMaxWidth;
             min-height: $modalMinVH;
 
+            .screenreader-text {
+                visibility: hidden;
+                height: 1px;
+            }
+
             #lpb-modal-close {
                 color: $greenBg;
                 float: right;
