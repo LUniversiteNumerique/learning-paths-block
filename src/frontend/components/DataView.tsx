@@ -1,8 +1,9 @@
 import * as React from 'react';
 import Year from './Year';
+import strings from '../../utils/strings.utils';
 import type { Data as DataProps } from '../../types/Data';
 import type { ResourceData } from '../../types/Data';
-import { createRow } from '../../utils/table.utils';
+import { createHeader, createRow } from '../../utils/table.utils';
 
 const DataView = (data: DataProps): JSX.Element => {
     return (
@@ -13,9 +14,19 @@ const DataView = (data: DataProps): JSX.Element => {
                 { data.years && data.years.map((data: any) => {
                     return (<Year {...data} />);
                 }) }
-                { data.resources && data.resources.map((resource: ResourceData): JSX.Element => {
-                    return createRow(resource, "resource")
-                }) }
+                { data.resources
+                    ?   <div className="flex-table active">
+                            <div className="column-wrapper">
+                                <div className="column header">
+                                    { createHeader(strings.thead) }
+                                </div>
+                                { data.resources.map((resource: ResourceData): JSX.Element => {
+                                    return createRow(resource, "resource")
+                                }) }
+                            </div>
+                        </div>
+                    :   null
+                }
             </section>
         </article>
     )
