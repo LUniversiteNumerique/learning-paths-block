@@ -4,6 +4,7 @@ export type Data =
       name: string;
       description: string;
       years: Array<YearData>;
+      resources: Array<ResourceData> | null;
     };
 
 export type YearData = 

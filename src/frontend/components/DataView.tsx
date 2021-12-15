@@ -1,6 +1,8 @@
 import * as React from 'react';
 import Year from './Year';
 import type { Data as DataProps } from '../../types/Data';
+import type { ResourceData } from '../../types/Data';
+import { createRow } from '../../utils/table.utils';
 
 const DataView = (data: DataProps): JSX.Element => {
     return (
@@ -10,6 +12,9 @@ const DataView = (data: DataProps): JSX.Element => {
             <section className="lpb-diploma-body">
                 { data.years && data.years.map((data: any) => {
                     return (<Year {...data} />);
+                }) }
+                { data.resources && data.resources.map((resource: ResourceData): JSX.Element => {
+                    return createRow(resource, "resource")
                 }) }
             </section>
         </article>
