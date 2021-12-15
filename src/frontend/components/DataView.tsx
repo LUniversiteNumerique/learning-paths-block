@@ -11,9 +11,6 @@ const DataView = (data: DataProps): JSX.Element => {
             <h4 className="lpb-diploma-name">{data.name}</h4>
             <div className="lpb-diploma-description" dangerouslySetInnerHTML={{ __html: data.description }} />
             <section className="lpb-diploma-body">
-                { data.years && data.years.map((data: any) => {
-                    return (<Year {...data} />);
-                }) }
                 { data.resources
                     ?   <div className="flex-table active">
                             <div className="column-wrapper">
@@ -27,6 +24,9 @@ const DataView = (data: DataProps): JSX.Element => {
                         </div>
                     :   null
                 }
+                { data.years && data.years.map((data: any) => {
+                    return (<Year {...data} />);
+                }) }
             </section>
         </article>
     )
