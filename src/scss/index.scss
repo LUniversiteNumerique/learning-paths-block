@@ -118,6 +118,11 @@ $contentMaxWidth: 1180px;
                         margin: 0;
                         font-size: 1.05em;
                         font-weight: bold !important;
+                        transition: all .2s ease;
+
+                        &:hover {
+                            @include colorBgBorder(0, 0, 0, 0, transparent, $green, white);
+                        }
                     }
 
                     .lpb-diploma-description {
