@@ -1,1 +1,3 @@
-# Learning Paths Block
+# OER Search Bar
+
+Gutenberg block

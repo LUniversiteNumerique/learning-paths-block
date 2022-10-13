@@ -1,12 +1,9 @@
-import * as React from 'react';
-import Loading from '../frontend/components/Loader';
+import * as React from 'react'
+import Searchbar from './searchbar'
+
 
 const Save = () => {
-    return (
-        <div id="learningpaths-block-root">
-            <Loading />
-        </div>
-    );
+    return <Searchbar />
 };
 
-export default Save;
+export default Save
