@@ -1,0 +1,5 @@
+// @ts-nocheck
+const LEARNINGPATHBLOCK_API_SETTING = LEARNINGPATHBLOCK.apiurl;
+
+export const baseURI = LEARNINGPATHBLOCK_API_SETTING;
+

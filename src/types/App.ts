@@ -1,3 +1,3 @@
 export type AppProps = {
-    url: string;
+    apiUrl: string;
 };
