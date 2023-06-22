@@ -6,7 +6,7 @@ const Loader = (): JSX.Element => {
         <div className="loader">
             <div className="loader-inner" />
             <h6>Chargement...</h6>
-        </div> 
+        </div>
     );
 };
 
