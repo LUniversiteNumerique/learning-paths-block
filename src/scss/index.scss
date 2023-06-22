@@ -29,7 +29,7 @@ $contentMaxWidth: 1180px;
     color: $color;
 }
 
-.lpb-ue-name {
+.lpb-ue-name {
     @include tableBorder();
     background-color: $greenBg !important;
     color: white !important;

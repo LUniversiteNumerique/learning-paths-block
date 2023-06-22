@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { AppContext } from './Context';
-import type { Data as DataProps } from '../../types/Data';
+import { AppContext } from './Context';
+import type { Data as DataProps } from '../../types/Data';
 
 
 interface Params {
@@ -32,13 +32,13 @@ const Diploma = (params: Params): JSX.Element => {
     }
 
     return (
-        <article 
+        <article
             className="lpb-diploma"
             onClick={() => fetchData(params.id)}
             onKeyDown={(event: any) => handleKeypress(event)}
         >
-            <h4 
-                className="lpb-diploma-name" 
+            <h4
+                className="lpb-diploma-name"
                 data-lpb-id={params.id}
                 tabIndex={0}
             >

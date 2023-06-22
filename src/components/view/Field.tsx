@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Field as FieldProps } from '../../types/Field';
+import { Field as FieldProps } from '../../types/Field';
 import Diploma from './Diploma';
 
 const Field = (field: FieldProps): JSX.Element => {
@@ -7,9 +7,9 @@ const Field = (field: FieldProps): JSX.Element => {
         <section className="lpb-field">
             <h3 className="lpb-field-name">{field.name}</h3>
             <div className="lpb-field-content">
-                { field.diplomas && field.diplomas.map((diploma : any) => {
+                {field.diplomas && field.diplomas.map((diploma: any) => {
                     return (<Diploma {...diploma} />);
-                }) }
+                })}
             </div>
         </section>
     );
