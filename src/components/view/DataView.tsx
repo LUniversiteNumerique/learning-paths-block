@@ -10,7 +10,7 @@ const DataView = (props: any) => {
             <Modal />
             <ul className="lpb-diploma-list">
                 {content && content.map((row: any) => {
-                    return (<Field {...row} />);
+                    return (<Field {...row} key={row.id} />);
                 })}
             </ul>
         </div>

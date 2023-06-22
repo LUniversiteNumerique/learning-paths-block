@@ -8,7 +8,7 @@ const Field = (field: FieldProps): JSX.Element => {
             <h3 className="lpb-field-name">{field.name}</h3>
             <div className="lpb-field-content">
                 {field.diplomas && field.diplomas.map((diploma: any) => {
-                    return (<Diploma {...diploma} />);
+                    return (<Diploma {...diploma} key={diploma.id} />);
                 })}
             </div>
         </section>

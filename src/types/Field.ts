@@ -1,4 +1,4 @@
-import type { Diploma } from './Diploma';
+import { Diploma } from './Diploma';
 
 export type Field = {
     name: string;

@@ -1,4 +1,4 @@
-import type { Resource } from './Resource';
+import { Resource } from './Resource';
 
 export type Diploma = {
     id: number;

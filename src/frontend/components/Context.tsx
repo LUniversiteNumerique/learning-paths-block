@@ -1,29 +1,22 @@
 import React, { createContext, useState } from "react";
+import type { IContext, IChildren } from "../../types/Context";
 
-interface IContext {
-  apiUrl: string;
-  setUrl: (data: string) => void;
-  currentData: any;
-  setCurrentData: (data: any) => void;
-  loader: boolean;
-  setLoader: (data: boolean) => void;
-}
-  
+
 const defaultState = {
   apiUrl: '',
   setUrl: () => '',
   currentData: null,
-  setCurrentData: () => {},
+  setCurrentData: () => ({}),
   loader: false,
   setLoader: () => false
 };
 
 export const AppContext = createContext<IContext>(defaultState);
 
-const AppProvider = ({ children }: any) => {
+const AppProvider = ({ children }: IChildren) => {
   const [apiUrl, setApiUrl] = useState<string>('');
   const setUrl = (newUrl: any) => setApiUrl((_: any) => newUrl);
-  
+
   const [currentData, setData] = useState<any>(null);
   const setCurrentData = (newData: any) => setData((_: any) => newData);
 
@@ -45,6 +38,6 @@ const AppProvider = ({ children }: any) => {
     </AppContext.Provider>
   );
 };
-  
+
 export default AppProvider;
 

@@ -33,7 +33,7 @@ const Edit: FunctionComponent<EditProps> = ({ ...props }: EditProps) => {
         props.setAttributes({
             content: data.fields,
         } as any);
-        const content = data.fields as Array<{}>;
+        const content = data.fields as Array<any>;
         return (<DataView content={content} />);
     }
 
