@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { AppContext } from './Context';
+import AppContext from '../context';
 import type { Data as DataProps } from '../../types/Data';
 
 

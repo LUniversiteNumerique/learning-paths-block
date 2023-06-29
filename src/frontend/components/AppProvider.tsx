@@ -1,17 +1,11 @@
-import React, { createContext, useState } from "react";
-import type { IContext, IChildren } from "../../types/Context";
+import React, { useState } from "react";
+import AppContext from "../context";
 
 
-const defaultState = {
-  apiUrl: '',
-  setUrl: () => '',
-  currentData: null,
-  setCurrentData: () => ({}),
-  loader: false,
-  setLoader: () => false
-};
+type IChildren = {
+  children: string | JSX.Element | JSX.Element[]
+}
 
-export const AppContext = createContext<IContext>(defaultState);
 
 const AppProvider = ({ children }: IChildren) => {
   const [apiUrl, setApiUrl] = useState<string>('');
@@ -40,4 +34,3 @@ const AppProvider = ({ children }: IChildren) => {
 };
 
 export default AppProvider;
-
