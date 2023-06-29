@@ -5,5 +5,6 @@ export default {
         types: "Type",
         volume: "Volume"
     },
-    modalDesc: "Cette fenêtre surgissante affiche les parcours et contenus du diplôme sélectionné dans la liste."
+    modalDesc: "Cette fenêtre surgissante affiche les parcours et contenus du diplôme sélectionné dans la liste.",
+    loading: "Chargement..."
 }
