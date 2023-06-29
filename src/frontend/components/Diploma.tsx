@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import AppContext from '../context';
-import type { Data as DataProps } from '../../types/Data';
+import type { DataProps } from './DataView';
 
 
-interface Params {
+export interface ParamsProps {
     id: number;
     name: string;
 }
 
-const Diploma = (params: Params): JSX.Element => {
+const Diploma = (params: ParamsProps): JSX.Element => {
     const { apiUrl, setCurrentData, setLoader } = useContext(AppContext);
 
     const fetchData = (id: number) => {

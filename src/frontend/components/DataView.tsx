@@ -1,9 +1,35 @@
 import * as React from 'react';
 import Year from './Year';
 import strings from '../../utils/strings.utils';
-import type { Data as DataProps } from '../../types/Data';
-import type { ResourceData } from '../../types/Data';
 import { createHeader, createRow } from '../../utils/table.utils';
+import type { UeProps } from './Ue';
+
+
+export type YearData =
+    | {
+        name: string;
+        ue: Array<UeProps>
+    };
+
+export type ResourceDataProps =
+    | {
+        [key: string]: string | number;
+        [index: number]: string;
+        name: string;
+        type: string;
+        volume: string;
+        url: string;
+    };
+
+export type DataProps =
+    | {
+        id: number;
+        name: string;
+        description: string;
+        years: Array<YearData>;
+        resources: Array<ResourceDataProps> | null;
+    };
+
 
 const DataView = (data: DataProps): JSX.Element => {
     return (
@@ -17,7 +43,7 @@ const DataView = (data: DataProps): JSX.Element => {
                             <div className="column header">
                                 {createHeader(strings.thead)}
                             </div>
-                            {data.resources.map((resource: ResourceData): JSX.Element => {
+                            {data.resources.map((resource: ResourceDataProps): JSX.Element => {
                                 return createRow(resource, "resource")
                             })}
                         </div>

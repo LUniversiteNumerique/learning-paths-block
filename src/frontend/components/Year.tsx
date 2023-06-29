@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Ue from './Ue';
-import type { YearData } from '../../types/Data';
+import type { YearData } from './DataView';
 
 
 const Year = (year: YearData) => {

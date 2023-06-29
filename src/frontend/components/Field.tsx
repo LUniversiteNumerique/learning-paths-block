@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import Diploma from './Diploma';
-import type { Field as FieldProps } from '../../types/Field';
+import type { ParamsProps as DiplomaProps } from './Diploma';
 
+
+export type FieldProps = {
+    name: string;
+    diplomas: DiplomaProps[];
+};
 
 const Field = (params: FieldProps): JSX.Element => {
     const [active, setActive] = useState<boolean>(false);

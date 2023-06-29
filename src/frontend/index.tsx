@@ -1,6 +1,6 @@
 import React from 'react';
 const WPElement = require('@wordpress/element');
-import AppProvider from './context';
+import AppProvider from './components/AppProvider';
 import App from './components/App';
 import { baseURI } from '../utils/utils';
 

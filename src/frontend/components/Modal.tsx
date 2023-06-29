@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { AppContext } from '../context';
+import AppContext from '../context';
 import DataView from './DataView';
 import Loader from './Loader';
 import strings from '../../utils/strings.utils';

@@ -4,7 +4,7 @@ import Modal from './Modal';
 import AppContext from '../context';
 
 
-type AppProps = {
+export type AppProps = {
     apiUrl: string;
 };
 
