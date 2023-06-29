@@ -1,13 +1,13 @@
 import * as React from 'react';
 import strings from '../../utils/strings.utils';
 import { createRow, createHeader } from '../../utils/table.utils';
-import type { ResourceDataProps } from './DataView';
+import type { ResourceProps } from './DataView';
 
 
 export type UeProps =
     | {
         name: string;
-        resources: Array<ResourceDataProps>
+        resources: Array<ResourceProps>
     };
 
 const Ue = (ue: UeProps) => {
@@ -18,7 +18,7 @@ const Ue = (ue: UeProps) => {
                 {createHeader(strings.thead)}
             </div>
             {ue.resources
-                && ue.resources.map((resource: ResourceDataProps): JSX.Element => {
+                && ue.resources.map((resource: ResourceProps): JSX.Element => {
                     return createRow(resource, "resource")
                 })}
         </div>

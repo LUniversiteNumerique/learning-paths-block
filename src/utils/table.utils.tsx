@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { ResourceData } from '../types/Data';
+import type { ResourceProps } from '../frontend/components/DataView';
 
 
 export const createHeader = (obj: object): JSX.Element[] => {
@@ -7,7 +7,7 @@ export const createHeader = (obj: object): JSX.Element[] => {
 }
 
 export const createRow = (
-    object: ResourceData,
+    object: ResourceProps,
     name: string
 ): JSX.Element => {
     const rows = Object.keys(object).map(key => {

@@ -11,7 +11,7 @@ export type YearData =
         ue: Array<UeProps>
     };
 
-export type ResourceDataProps =
+export type ResourceProps =
     | {
         [key: string]: string | number;
         [index: number]: string;
@@ -27,9 +27,8 @@ export type DataProps =
         name: string;
         description: string;
         years: Array<YearData>;
-        resources: Array<ResourceDataProps> | null;
+        resources: Array<ResourceProps> | null;
     };
-
 
 const DataView = (data: DataProps): JSX.Element => {
     return (
@@ -43,7 +42,7 @@ const DataView = (data: DataProps): JSX.Element => {
                             <div className="column header">
                                 {createHeader(strings.thead)}
                             </div>
-                            {data.resources.map((resource: ResourceDataProps): JSX.Element => {
+                            {data.resources.map((resource: ResourceProps): JSX.Element => {
                                 return createRow(resource, "resource")
                             })}
                         </div>
