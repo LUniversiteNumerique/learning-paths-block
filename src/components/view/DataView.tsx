@@ -2,6 +2,7 @@ import * as React from 'react';
 import Modal from './Modal';
 import Field from './Field';
 
+
 const DataView = (props: any) => {
     const content = props.content;
 

@@ -3,8 +3,16 @@ import apiFetch from '@wordpress/api-fetch';
 import DataView from './view/DataView';
 import Loading from '../frontend/components/Loader';
 import { baseURI } from '../utils/utils';
-import { EditProps } from '../types/Edit';
 
+
+export type EditProps = {
+    attributes: Attributes;
+    setAttributes: (attributes: Attributes) => void;
+};
+
+type Attributes = {
+    content: string | any;
+};
 
 const Edit: FunctionComponent<EditProps> = ({ ...props }: EditProps) => {
     const endpoint: string = baseURI;

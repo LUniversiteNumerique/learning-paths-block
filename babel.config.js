@@ -1,6 +1,6 @@
 module.exports = {
     presets: ["@babel/env", "@babel/preset-react", "@babel/preset-typescript"],
-    plugins: ["@babel/transform-arrow-functions", "@babel/proposal-class-properties"], // same as "@babel/plugin-transform-arrow-functions"
+    plugins: ["@emotion", "@babel/transform-arrow-functions", "@babel/proposal-class-properties"], // same as "@babel/plugin-transform-arrow-functions"
 };
 /*
 {

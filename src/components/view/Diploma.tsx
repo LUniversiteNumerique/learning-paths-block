@@ -1,8 +1,12 @@
 import * as React from 'react';
-import { Diploma as DiplomaProps } from '../../types/Diploma';
 
 
-const Diploma = (diploma: DiplomaProps): JSX.Element => {
+export interface Props {
+    id: number;
+    name: string;
+}
+
+const Diploma = (diploma: Props): JSX.Element => {
     return (
         <article className="lpb-diploma">
             <h4
