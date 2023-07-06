@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react';
 import Ue from './Ue';
-import type { YearData } from '../../types/Data';
+import type { YearData } from './DataView';
 
 
 const Year = (year: YearData) => {
@@ -16,7 +16,7 @@ const Year = (year: YearData) => {
 
     return (
         <>
-            <h5 
+            <h5
                 id={`lpb-year-name-${year.name}`}
                 className={`lpb-year-name ${selected ? 'active' : ''}`}
                 onClick={() => handleSelection()}
@@ -26,15 +26,15 @@ const Year = (year: YearData) => {
                 {year.name}
             </h5>
             <div className={`flex-table ${selected ? 'active' : ''}`}>
-                { year.ue && year.ue.map((ue : any) => {
+                {year.ue && year.ue.map((ue: any) => {
                     return ue.resources && ue.name
-                        ?   <Ue {...ue} /> 
-                        :   null
-                }) }
+                        ? <Ue {...ue} />
+                        : null
+                })}
                 <div className="top-anchor">
-                    <a 
-                        title={`Revenir au titre ${year.name}`} 
-                        href={`#lpb-year-name-${year.name}`} 
+                    <a
+                        title={`Revenir au titre ${year.name}`}
+                        href={`#lpb-year-name-${year.name}`}
                         className="top-anchor-href"
                     >
                     </a>

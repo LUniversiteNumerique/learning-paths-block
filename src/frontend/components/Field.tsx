@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import Diploma from './Diploma';
-import type { Field as FieldProps } from '../../types/Field';
+import type { ParamsProps as DiplomaProps } from './Diploma';
 
+
+export type FieldProps = {
+    name: string;
+    diplomas: DiplomaProps[];
+};
 
 const Field = (params: FieldProps): JSX.Element => {
     const [active, setActive] = useState<boolean>(false);
@@ -15,7 +20,7 @@ const Field = (params: FieldProps): JSX.Element => {
             })
         );
     };
-    
+
     const toggleActive = () => {
         setActive(!active);
     };
@@ -28,7 +33,7 @@ const Field = (params: FieldProps): JSX.Element => {
 
     return (
         <div className={`lpb-field${active ? " active" : ""}`}>
-            <h3 
+            <h3
                 tabIndex={0}
                 className="lpb-field-name"
                 onClick={() => toggleActive()}
@@ -37,7 +42,7 @@ const Field = (params: FieldProps): JSX.Element => {
                 {params.name}
             </h3>
             <div className="lpb-field-content">
-                { renderDiplomas() }
+                {renderDiplomas()}
             </div>
         </div>
     );
