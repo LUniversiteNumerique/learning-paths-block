@@ -25,10 +25,10 @@ const config = {
         ...defaultConfig.module,
         rules: [
             {
-				test: /\.tsx?$/,
-				use: "ts-loader",
-				exclude: /node_modules/,
-			},
+                test: /\.tsx?$/,
+                use: ["babel-loader"],
+                exclude: /node_modules/,
+            },
             {
                 test: /\.s[ac]ss$/i,
                 use: [

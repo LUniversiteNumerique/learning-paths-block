@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Field from './Field';
-import type { AppProps } from '../../types/App';
-import type { Field as FieldProps } from '../../types/Field';
+import type { AppProps } from './App';
+import type { FieldProps } from './Field';
 
 
 const View = (params: AppProps) => {
@@ -17,11 +17,11 @@ const View = (params: AppProps) => {
         return data.fields;
     };
 
-    return(
+    return (
         <ul className="lpb-diploma-list">
-            { fields.map(field => {
+            {fields.map(field => {
                 return <Field {...field} />
-            }) }
+            })}
         </ul>
     );
 };

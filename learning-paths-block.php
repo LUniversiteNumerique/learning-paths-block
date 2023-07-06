@@ -76,7 +76,7 @@ function learningpathsblock_admin_menu() {
 	add_options_page(__('Learning Paths Block', 'learningpathsblock'), 'Learning Paths Block', 'manage_options', basename(__FILE__), 'learningpathsblock_options');
 }
 
-function learningpathsblock_options(){
+function learningpathsblock_options() {
 	if (!current_user_can('manage_options'))  {
 		wp_die( __('You do not have sufficient permissions to access this page.') );
 	}

@@ -1,9 +1,12 @@
-import React, { useContext, useEffect } from 'react';
-import type { AppProps } from '../../types/App';
+import React, { useContext, useEffect } from 'react';
 import View from './View';
 import Modal from './Modal';
-import { AppContext } from './Context';
+import AppContext from '../context';
 
+
+export type AppProps = {
+    apiUrl: string;
+};
 
 const App = (params: AppProps): JSX.Element => {
     const { setUrl } = useContext(AppContext);
