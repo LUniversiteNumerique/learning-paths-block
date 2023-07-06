@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Field from './Field';
 import type { AppProps } from './App';
 import type { FieldProps } from './Field';

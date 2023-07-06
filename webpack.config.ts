@@ -26,22 +26,7 @@ const config = {
         rules: [
             {
                 test: /\.tsx?$/,
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            presets: [
-                                ['@babel/preset-env', { targets: 'defaults' }],
-                            ],
-                        },
-                    },
-                    {
-                        loader: 'ts-loader',
-                        options: {
-                            transpileOnly: true,
-                        },
-                    }
-                ],
+                use: ["babel-loader"],
                 exclude: /node_modules/,
             },
             {

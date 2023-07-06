@@ -4,6 +4,7 @@
         "jsx": "react",
         "module": "es6",
         "moduleResolution": "node",
+        "allowUmdGlobalAccess": true,
         "allowJs": true,
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
