@@ -15,7 +15,13 @@ export const createRow = (
             ? <div className={`cell lpb-${name}-${key}`}>
                 {key === 'name'
                     ? <a href={object['url']} target="_blank" rel="noreferrer">{object['name']}</a>
-                    : object[key]
+                    : key === 'licence'
+                        ? object[key] != null
+                            ? Object.values(object[key]).map((licence: any) =>
+                                <img src={licence['image']} width="20" title={licence['name']} alt={licence['name']} />
+                            )
+                            : ""
+                        : object[key]
                 }
             </div>
             : null;
