@@ -348,6 +348,12 @@ $contentMaxWidth: 1180px;
                                     }
                                 }
 
+                                &.lpb-resource-licence {
+                                    span {
+                                        font-size: 0.8em;
+                                    }
+                                }
+
                                 &.tbody-th {
                                     @include tableBorder();
                                     background-color: $greenBgAlt;
