@@ -318,8 +318,8 @@ $light-blue: #0D75BB;
                             font-size: 1em;
                             color: $blue !important;
                             padding: .75em .5em;
-                            margin-top: 1.75em;
-                            margin-bottom: 4px;
+                            margin-top: 1.75em !important;
+                            margin-bottom: 4px !important;
                         }
 
                         .column {
