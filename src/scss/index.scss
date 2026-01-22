@@ -115,7 +115,7 @@ $light-blue: #0D75BB;
                 @include colorBgBorder(0, 0, 4px, 0, transparent, $blue, white);
                 transition: 0.2s all ease;
                 padding: 10px 15px 6px 15px;
-                margin: 10px 0;
+                margin: 10px 0 !important;
 
                 &:hover {
                     cursor: pointer;
