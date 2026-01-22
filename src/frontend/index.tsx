@@ -4,7 +4,7 @@ import AppProvider from './components/AppProvider';
 import App from './components/App';
 import { baseURI } from '../utils/utils';
 
-if (document.getElementById("learningpaths-block-root")) {
+if (document.getElementById("learningpaths-block-root") !== null) {
     WPElement.render(
         <AppProvider>
             <App apiUrl={baseURI}/>
