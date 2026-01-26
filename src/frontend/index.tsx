@@ -13,5 +13,5 @@ if (document.getElementById("learningpaths-block-root")) {
         document.getElementById('learningpaths-block-root')
     );
 }else{
-    console.log('nope');
+    console.log('nope this time');
 }
