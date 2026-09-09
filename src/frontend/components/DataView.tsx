@@ -19,6 +19,7 @@ export type ResourceProps =
         type: string;
         volume: string;
         url: string;
+        creationdate: string;
         licence: string;
     };
 

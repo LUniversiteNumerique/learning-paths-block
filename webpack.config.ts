@@ -40,6 +40,10 @@ const config = {
                     "sass-loader",
                 ],
             },
+            {
+                test: /\.png$/i,
+                type: 'asset/inline',
+            },
             ...defaultConfig.module.rules
         ]
     },
