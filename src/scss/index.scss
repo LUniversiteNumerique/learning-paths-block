@@ -351,6 +351,10 @@ $light-blue: #0D75BB;
                                 padding: .25em 0.75em .25em 0;
                                 font-size: .85em;
 
+                                &.th {
+                                    padding: .25em 0.55em .25em 0.55em;
+                                }
+
                                 &.lpb-resource-name {
                                     font-size: 1em;
                                     display: flex;
