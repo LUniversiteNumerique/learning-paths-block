@@ -352,6 +352,7 @@ $light-blue: #0D75BB;
 
                                     .resource-info-container {
                                         display: inline-block;
+                                        margin-left: auto;
                                     }
 
                                     .resource-info-tooltip {
@@ -379,8 +380,6 @@ $light-blue: #0D75BB;
 
                                         width: 18px;
                                         height: 18px;
-
-                                        margin-left: auto;
 
                                         background: $dark-blue;
                                         color: #fff;
