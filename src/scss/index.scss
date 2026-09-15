@@ -61,40 +61,6 @@ $light-blue: #0D75BB;
     display: flex;
     flex-direction: row;
 
-    .resource-info-container {
-        position: relative;
-        display: inline-block;
-    }
-
-    .resource-info {
-        width: 18px;
-        height: 18px;
-        margin-left: 6px;
-        padding: 0;
-        border: 0;
-        border-radius: 50%;
-        cursor: pointer;
-        font-weight: bold;
-    }
-
-    .resource-info-tooltip {
-        position: absolute;
-        z-index: 1000;
-        left: 24px;
-        top: 50%;
-        transform: translateY(-50%);
-
-        width: 300px;
-        padding: 8px 10px;
-
-        background: #333;
-        color: white;
-        border-radius: 4px;
-
-        font-size: 0.85rem;
-        line-height: 1.4;
-    }
-
     ul.lpb-diploma-list {
         width: 100%;
         max-width: $contentMaxWidth;
@@ -382,6 +348,28 @@ $light-blue: #0D75BB;
                                     a {
                                         color: $dark-blue;
                                         text-decoration: underline;
+                                    }
+
+                                    .resource-info-container {
+                                        display: inline-block;
+                                    }
+
+                                    .resource-info-tooltip {
+                                        position: absolute;
+                                        z-index: 1000;
+
+                                        right: 0;
+                                        top: calc(100% + 5px);
+
+                                        width: 300px;
+                                        padding: 8px 10px;
+
+                                        background: #333;
+                                        color: white;
+                                        border-radius: 4px;
+
+                                        font-size: 0.85rem;
+                                        line-height: 1.4;
                                     }
 
                                     .resource-info {
