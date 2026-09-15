@@ -2,6 +2,30 @@ import * as React from 'react';
 import type { ResourceProps } from '../frontend/components/DataView';
 import MoodleIcon from '../utils/moodle.png';
 
+const ResourceInfo = ({ info }: { info: string }) => {
+    const [visible, setVisible] = React.useState(false);
+
+    return (
+        <span className="resource-info-container">
+            <button
+                type="button"
+                className="resource-info"
+                onClick={() => setVisible(value => !value)}
+                aria-label="Afficher les informations"
+                aria-expanded={visible}
+            >
+                i
+            </button>
+
+            {visible && (
+                <span className="resource-info-tooltip">
+                    {info}
+                </span>
+            )}
+        </span>
+    );
+};
+
 export const createHeader = (obj: Object): JSX.Element[] => {
     return Object.entries(obj).map(([_, v]) => <div className="cell th">{v}</div>);
 }
@@ -50,12 +74,7 @@ export const createRow = (
                                 {object.name}
                             </a>
                             {typeof object.info === 'string' && object.info.trim() !== '' && (
-                                <span
-                                    className="resource-info"
-                                    title={object.info}
-                                >
-                                    i
-                                </span>
+                                <ResourceInfo info={object.info} />
                             )}
                         </>
                         : key === 'licence'
