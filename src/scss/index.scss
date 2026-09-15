@@ -27,12 +27,6 @@ $light-blue: #0D75BB;
     padding: .25em .75em;
 }
 
-@mixin flipAnim($opacity, $perspective, $translateZ, $rotateX, $rotateY, $scale) {
-    opacity: $opacity;
-    -webkit-transform: perspective($perspective) translateZ($translateZ) rotateX($rotateX) rotateY($rotateY) scale($scale);
-    transform: perspective($perspective) translateZ($translateZ) rotateX($rotateX) rotateY($rotateY) scale($scale);
-}
-
 @mixin colorBgBorder($borderTop, $borderRight, $borderBottom, $borderLeft, $borderCorlor, $bgColor, $color) {
     border-width: $borderTop $borderRight $borderBottom $borderLeft;
     border-color: $borderCorlor;
@@ -59,24 +53,6 @@ $light-blue: #0D75BB;
 
     100% {
         -webkit-transform: rotate(180deg);
-    }
-}
-
-@keyframes flip {
-    0% {
-        @include flipAnim(0, 400px, 0, 0, 0, 1);
-    }
-
-    33% {
-        @include flipAnim(1, 400px, 0, 180deg, 0, 1);
-    }
-
-    66% {
-        @include flipAnim(0, 400px, 0, 0, 180deg, 1);
-    }
-
-    100% {
-        @include flipAnim(1, 400px, 0, 0, 180deg, 1);
     }
 }
 
@@ -129,7 +105,6 @@ $light-blue: #0D75BB;
 
                 .lpb-diploma {
                     margin: 0.5em 0;
-
 
                     &:hover {
                         cursor: pointer;
